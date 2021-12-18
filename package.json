@@ -1,0 +1,24 @@
+{
+  "name": "dating-app",
+  "version": "1.0.0",
+  "description": "Certi is an MVC dating app",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon src/index.js",
+    "start": "node src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fudge88/dating-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fudge88/dating-app/issues"
+  },
+  "homepage": "https://github.com/fudge88/dating-app#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
