@@ -20,5 +20,10 @@
   "homepage": "https://github.com/fudge88/dating-app#readme",
   "devDependencies": {
     "nodemon": "^2.0.15"
+  },
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.12.0"
   }
 }
