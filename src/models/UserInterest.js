@@ -2,7 +2,7 @@ const { Model, DataTypes } = require("sequelize");
 
 const connection = require("../config/connection");
 
-class Match extends Model {}
+class UserInterest extends Model {}
 
 const schema = {
   id: {
@@ -11,37 +11,28 @@ const schema = {
     primaryKey: true,
     autoIncrement: true,
   },
-  match_request_from: {
+  user_id: {
     references: {
       model: "user",
       key: "id",
     },
   },
-  match_request_to: {
+  interest_id: {
     references: {
-      model: "user",
+      model: "interest",
       key: "id",
     },
-  },
-  match_request_status: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  accepted_date: {
-    type: DataTypes.DATE,
-    allowNull: false,
-    defaultValue: DataTypes.NOW,
   },
 };
 
 const options = {
   sequelize: connection,
-  modelName: "match",
+  modelName: "userInterest",
   freezeTableName: true,
   timestamps: true,
   underscored: true,
 };
 
-Match.init(schema, options);
+Interest.init(schema, options);
 
-module.exports = Match;
+module.exports = UserInterest;

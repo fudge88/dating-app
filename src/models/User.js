@@ -32,13 +32,13 @@ const schema = {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  match_id: {
-    type: DataTypes.INTEGER,
-    references: {
-      model: "match",
-      key: "id",
-    },
-  },
+  // match_id: {
+  //   type: DataTypes.INTEGER,
+  //   references: {
+  //     model: "match",
+  //     key: "id",
+  //   },
+  // },
 };
 
 const options = {
@@ -46,7 +46,7 @@ const options = {
   modelName: "user",
   freezeTableName: true,
   timestamps: true,
-  underscored: false,
+  underscored: true,
 };
 
 User.init(schema, options);
