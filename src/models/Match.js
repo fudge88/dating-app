@@ -12,12 +12,14 @@ const schema = {
     autoIncrement: true,
   },
   match_request_from: {
+    type: DataTypes.INTEGER,
     references: {
       model: "user",
       key: "id",
     },
   },
   match_request_to: {
+    type: DataTypes.INTEGER,
     references: {
       model: "user",
       key: "id",

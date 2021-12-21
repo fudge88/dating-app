@@ -12,12 +12,14 @@ const schema = {
     autoIncrement: true,
   },
   user_id: {
+    type: DataTypes.INTEGER,
     references: {
       model: "user",
       key: "id",
     },
   },
   match_id: {
+    type: DataTypes.INTEGER,
     references: {
       model: "match",
       key: "id",
@@ -33,6 +35,6 @@ const options = {
   underscored: true,
 };
 
-Interest.init(schema, options);
+UserMatch.init(schema, options);
 
 module.exports = UserMatch;

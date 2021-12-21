@@ -12,12 +12,14 @@ const schema = {
     autoIncrement: true,
   },
   user_id: {
+    type: DataTypes.INTEGER,
     references: {
       model: "user",
       key: "id",
     },
   },
   interest_id: {
+    type: DataTypes.INTEGER,
     references: {
       model: "interest",
       key: "id",
@@ -33,6 +35,6 @@ const options = {
   underscored: true,
 };
 
-Interest.init(schema, options);
+UserInterest.init(schema, options);
 
 module.exports = UserInterest;

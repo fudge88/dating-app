@@ -11,11 +11,11 @@ const schema = {
     primaryKey: true,
     autoIncrement: true,
   },
-  music: {
+  music_type: {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  food: {
+  food_cuisine: {
     type: DataTypes.STRING,
     allowNull: false,
   },
@@ -23,11 +23,11 @@ const schema = {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  movie: {
+  movie_genre: {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  games: {
+  activity_level: {
     type: DataTypes.STRING,
     allowNull: false,
   },
