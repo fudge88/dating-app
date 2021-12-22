@@ -1,8 +1,8 @@
-const Interest = require("./models/Interest");
-const Match = require("./models/Match");
-const User = require("./models/User");
-const UserInterest = require("./models/UserInterest");
-const UserMatch = require("./models/UserMatch");
+const Interest = require("./Interest");
+const Match = require("./Match");
+const User = require("./User");
+const UserInterest = require("./UserInterest");
+const UserMatch = require("./UserMatch");
 
 // ASSOCIATIONS
 
