@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 const seedInterests = require("./InterestSeeds");
 const seedMatches = require("./matchSeeds");
 const seedUsers = require("./userSeeds");

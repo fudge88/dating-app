@@ -1,4 +1,4 @@
-const { Interest } = require("../models/Interest");
+const Interest = require("../models/Interest");
 
 const interestData = [
   {

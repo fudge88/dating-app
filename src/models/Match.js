@@ -11,19 +11,20 @@ const schema = {
     primaryKey: true,
     autoIncrement: true,
   },
+
   match_request_from: {
     type: DataTypes.INTEGER,
     references: {
-      model: "user",
-      key: "id",
+      model: "userMatch",
+      key: "user_id",
     },
   },
   match_request_to: {
     type: DataTypes.INTEGER,
-    references: {
-      model: "user",
-      key: "id",
-    },
+    // references: {
+    //   model: "userMatch",
+    //   key: "user_id",
+    // },
   },
   match_request_status: {
     type: DataTypes.STRING,
@@ -31,7 +32,7 @@ const schema = {
   },
   accepted_date: {
     type: DataTypes.DATE,
-    allowNull: false,
+    allowNull: true,
     defaultValue: DataTypes.NOW,
   },
 };
