@@ -14,16 +14,16 @@ const schema = {
 
   match_request_from: {
     type: DataTypes.INTEGER,
-    references: {
-      model: "userMatch",
-      key: "user_id",
-    },
+    // references: {
+    //   model: "user",
+    //   key: "id",
+    // },
   },
   match_request_to: {
     type: DataTypes.INTEGER,
     // references: {
-    //   model: "userMatch",
-    //   key: "user_id",
+    //   model: "user",
+    //   key: "id",
     // },
   },
   match_request_status: {

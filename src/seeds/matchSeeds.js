@@ -4,7 +4,7 @@ const matchData = [
   {
     match_request_from: 1,
     match_request_to: 3,
-    match_request_status: "pending",
+    match_request_status: "rejected",
   },
   {
     match_request_from: 1,
@@ -14,7 +14,7 @@ const matchData = [
   {
     match_request_from: 5,
     match_request_to: 3,
-    match_request_status: "pending",
+    match_request_status: "accepted",
   },
   {
     match_request_from: 3,

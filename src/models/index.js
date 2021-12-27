@@ -6,15 +6,22 @@ const UserMatch = require("./UserMatch");
 
 // ASSOCIATIONS
 
-Match.belongsTo(User, {
-  through: UserMatch,
-  foreignKey: "match_id",
-});
-
-User.hasMany(Match, {
+User.belongsToMany(Match, {
   through: UserMatch,
   foreignKey: "user_id",
+  // sourceKey: "id",
+  // otherKey: "match_request_to",
+  // foreignKeyConstraint: false,
   onDelete: "CASCADE",
+});
+
+Match.belongsToMany(User, {
+  through: UserMatch,
+  foreignKey: "user_id",
+  // targetKey: "id",
+  // otherKey: "match_request_to",
+  // foreignKeyConstraint: false,
+  // constraints: false,
 });
 
 Interest.belongsToMany(User, {
