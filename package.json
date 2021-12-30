@@ -7,7 +7,7 @@
     "dev": "nodemon src/index.js",
     "start": "node src/index.js",
     "seed": "node src/seeds/index.js",
-    "postseed": "node src/controller/sample.js"
+    "test": "node src/controller/sample.js"
   },
   "repository": {
     "type": "git",

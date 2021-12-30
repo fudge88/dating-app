@@ -14,22 +14,25 @@ const schema = {
 
   match_request_from: {
     type: DataTypes.INTEGER,
-    // references: {
-    //   model: "user",
-    //   key: "id",
-    // },
+    references: {
+      model: "user",
+      key: "id",
+    },
   },
+
   match_request_to: {
     type: DataTypes.INTEGER,
-    // references: {
-    //   model: "user",
-    //   key: "id",
-    // },
+    references: {
+      model: "user",
+      key: "id",
+    },
   },
+
   match_request_status: {
     type: DataTypes.STRING,
     allowNull: false,
   },
+
   accepted_date: {
     type: DataTypes.DATE,
     allowNull: true,

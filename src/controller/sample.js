@@ -1,44 +1,32 @@
-require("dotenv").config();
 const { User, Match, UserMatch } = require("../models");
 
+// www.data.com/profile
 const getUserById = async (req, res) => {
   try {
-    const userData = await User.findByPk(1, {
+    const userInfo = await User.findByPk(1);
+
+    const matches = await Match.findAll({
+      where: {
+        match_request_from: 1,
+      },
       include: [
         {
-          model: Match,
-          through: UserMatch,
-          //   through: {
-          //     attributes: ["match_request_from", "match_request_to"],
-          // where: { match_request_status: "accepted" },
-          // },
+          model: User,
         },
       ],
+      raw: true,
     });
 
-    const data = await User.findAll({
-      include: [
-        {
-          model: Match,
-          through: UserMatch,
-          //   through: {
-          //     attributes: ["match_request_from", "match_request_to"],
-          // where: { match_request_status: "accepted" },
-          // },
-        },
-      ],
-    });
+    // const userInfo = userInfoFromDB.get({ plain: true });
+    // const matches = matchesFromDB.get({ plain: true });
 
-    console.log(JSON.parse(JSON.stringify(data)));
-    // const userData = await User.findAll();
-    console.log(JSON.parse(JSON.stringify(userData)));
-    // if (data) {
-    //   return res.json({ success: true, data });
-    // }
+    const templateData = {
+      userInfo,
+      matches,
+    };
 
-    // return res
-    //   .status(404)
-    //   .json({ success: false, error: "Traveller does not exist" });
+    // res.render("profile", templateData);
+    console.log(templateData);
   } catch (error) {
     console.log(error);
     // logError("GET traveller by ID", error.message);
@@ -47,4 +35,4 @@ const getUserById = async (req, res) => {
   }
 };
 
-getUserById();
+module.exports = { getUserById };
