@@ -2,6 +2,8 @@ const { User, Match, UserMatch } = require("../models");
 
 // www.data.com/profile
 const getUserById = async (req, res) => {
+  console.log(User);
+  console.log(Match);
   try {
     const userInfo = await User.findByPk(1);
 
@@ -20,6 +22,8 @@ const getUserById = async (req, res) => {
     // const userInfo = userInfoFromDB.get({ plain: true });
     // const matches = matchesFromDB.get({ plain: true });
 
+    console.log(userInfo);
+    console.log(matches);
     const templateData = {
       userInfo,
       matches,
@@ -34,5 +38,5 @@ const getUserById = async (req, res) => {
     //   .json({ success: false, error: "Failed to send response" });
   }
 };
-
+getUserById();
 module.exports = { getUserById };
