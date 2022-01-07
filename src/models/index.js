@@ -1,6 +1,5 @@
 const Match = require("./Match");
 const User = require("./User");
-const UserMatch = require("./UserMatch");
 
 // ASSOCIATIONS
 
@@ -23,5 +22,4 @@ User.hasMany(Match, {
 module.exports = {
   Match,
   User,
-  UserMatch,
 };
