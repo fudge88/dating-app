@@ -4,7 +4,7 @@ const matchData = [
   {
     match_request_from: 1,
     match_request_to: 2,
-    match_request_status: "rejected",
+    matched: true,
   },
   // {
   //   match_request_from: 1,

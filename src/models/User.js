@@ -11,34 +11,62 @@ const schema = {
     primaryKey: true,
     autoIncrement: true,
   },
-  user_name: {
+  name: {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  user_email: {
+  email: {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  user_password: {
+  password: {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  user_age: {
+  age: {
     type: DataTypes.INTEGER,
     allowNull: false,
     validate: { isNumeric: true },
   },
-  user_gender: {
+  gender: {
+    type: DataTypes.ENUM({
+      values: ["male", "female", "other"],
+    }),
+    allowNull: false,
+  },
+  sexual_preference: {
+    type: DataTypes.ENUM({
+      values: ["straight", "bisexual", "gay"],
+      allowNull: false,
+    }),
+  },
+  about_me: {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  // match_id: {
-  //   type: DataTypes.INTEGER,
-  //   references: {
-  //     model: "match",
-  //     key: "id",
-  //   },
-  // },
+  location: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  height: {
+    type: DataTypes.DECIMAL(3, 2),
+    allowNull: false,
+    validate: {
+      isDecimal: true,
+    },
+  },
+  build: {
+    type: DataTypes.ENUM({
+      values: ["slim", "athletic", "medium", "curvy", "large"],
+      allowNull: false,
+    }),
+  },
+  seriousness: {
+    type: DataTypes.ENUM({
+      values: ["low", "medium", "high"],
+      allowNull: false,
+    }),
+  },
 };
 
 const options = {

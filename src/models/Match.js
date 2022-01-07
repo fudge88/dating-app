@@ -28,8 +28,8 @@ const schema = {
     },
   },
 
-  match_request_status: {
-    type: DataTypes.STRING,
+  matched: {
+    type: DataTypes.BOOLEAN,
     allowNull: false,
   },
 

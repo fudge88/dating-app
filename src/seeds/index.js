@@ -2,7 +2,6 @@ require("dotenv").config();
 
 const seedMatches = require("./matchSeeds");
 const seedUsers = require("./userSeeds");
-const seedUserMatches = require("./userMatchSeeds");
 
 const sequelize = require("../config/connection");
 
@@ -15,9 +14,6 @@ const seedAll = async () => {
 
   await seedMatches();
   console.log("\n----- MATCH SEEDED -----\n");
-
-  await seedUserMatches();
-  console.log("\n----- USER-MATCH SEEDED -----\n");
 
   process.exit(0);
 };
