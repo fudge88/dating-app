@@ -1,4 +1,4 @@
-const { User, Match, UserMatch } = require("../models");
+const { User, Match } = require("../models");
 
 // www.data.com/profile
 const getUserById = async (req, res) => {
