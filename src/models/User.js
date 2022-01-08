@@ -1,9 +1,8 @@
+const bcrypt = require("bcrypt");
 const { Model, DataTypes } = require("sequelize");
 
 const connection = require("../config/connection");
 const hashPassword = require("../hooks/hashPassword");
-
-class User extends Model {}
 
 const schema = {
   id: {
@@ -33,17 +32,17 @@ const schema = {
     type: DataTypes.ENUM({
       values: ["male", "female", "other"],
     }),
-    allowNull: false,
+    allowNull: true,
   },
   sexual_preference: {
     type: DataTypes.ENUM({
       values: ["straight", "bisexual", "gay"],
-      allowNull: false,
+      allowNull: true,
     }),
   },
   about_me: {
     type: DataTypes.STRING,
-    allowNull: false,
+    allowNull: true,
   },
   location: {
     type: DataTypes.STRING,
@@ -51,7 +50,7 @@ const schema = {
   },
   height: {
     type: DataTypes.DECIMAL(3, 2),
-    allowNull: false,
+    allowNull: true,
     validate: {
       isDecimal: true,
     },
@@ -59,13 +58,13 @@ const schema = {
   build: {
     type: DataTypes.ENUM({
       values: ["slim", "athletic", "medium", "curvy", "large"],
-      allowNull: false,
+      allowNull: true,
     }),
   },
   seriousness: {
     type: DataTypes.ENUM({
       values: ["low", "medium", "high"],
-      allowNull: false,
+      allowNull: true,
     }),
   },
 };
@@ -75,14 +74,17 @@ const options = {
   modelName: "user",
   freezeTableName: true,
   timestamps: true,
-  underscored: true,
+  underscored: false,
   hooks: {
     beforeCreate: hashPassword,
   },
 };
 
 class User extends Model {
-  checkPassword() {}
+  async checkPassword(userPassword) {
+    const isValid = await bcrypt.compare(userPassword, this.password);
+    return isValid;
+  }
 }
 
 User.init(schema, options);
