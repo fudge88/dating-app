@@ -8,7 +8,7 @@ const renderLogin = (req, res) => {
   res.render("login");
 };
 const renderSignUp = (req, res) => {
-  res.render("sign-up");
+  res.render("signup");
 };
 
 module.exports = { renderHome, renderSearchPage, renderLogin, renderSignUp };
