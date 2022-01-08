@@ -7,6 +7,8 @@ const path = require("path");
 const connection = require("./config/connection");
 const routes = require("./routes");
 
+const { logInfo } = require("./utils/logger");
+
 const PORT = process.env.PORT || 4000;
 
 const hbs = expressHandleBars.create({});
@@ -20,4 +22,18 @@ app.use(express.static(path.join(__dirname, "../public")));
 app.use(routes);
 app.use(express.urlencoded({ extended: true }));
 
-app.listen(PORT, () => console.log(`http://localhost:${PORT}`));
+const init = async () => {
+  try {
+    await connection.sync({ force: false });
+
+    console.log("[INFO]: DB connection successful");
+
+    app.listen(PORT, () =>
+      logInfo("Server connection", `🚀🚀 http://localhost:${PORT}`)
+    );
+  } catch (error) {
+    console.log(`[ERROR]: DB connection failed | ${error.message}`);
+  }
+};
+
+init();
