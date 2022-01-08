@@ -2,7 +2,7 @@ const renderHome = (req, res) => {
   res.render("home");
 };
 const renderSearchPage = (req, res) => {
-  res.render("searchPage");
+  res.render("search");
 };
 const renderLogin = (req, res) => {
   res.render("login");
