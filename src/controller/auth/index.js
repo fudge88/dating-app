@@ -32,7 +32,19 @@ const login = async (req, res) => {
         error: "User not authorized",
       });
     }
-    return res.json({ success: true, data: "Login successful" });
+
+    const userInSession = {
+      id: user.get("id"),
+      email: user.get("email"),
+      name: user.get("name"),
+    };
+
+    req.session.save(() => {
+      req.session.loggedIn = true;
+      req.session.user = userInSession;
+
+      return res.json({ success: true, data: "Login successful" });
+    });
   } catch (error) {
     console.log(`[ERROR]: Login user failed | ${error.message}`);
     return res
