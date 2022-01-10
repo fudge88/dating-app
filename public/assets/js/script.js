@@ -20,7 +20,7 @@ const handleLogin = async (event) => {
   console.log(data);
 
   // if (data.success) {
-  //   window.location.replace("/");
+  //   window.location.replace("/renderHome");
   // }
 };
 
