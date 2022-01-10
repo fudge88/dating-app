@@ -7,21 +7,19 @@ const handleLogin = async (event) => {
   const email = $("#email-input").val();
   const password = $("#password-input").val();
 
-  const response = await fetch("http://localhost:4000/auth/login", {
+  const response = await fetch("/auth/login", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-
     body: JSON.stringify({ email, password }),
   });
+
   const data = await response.json();
 
-  console.log(data);
-
-  // if (data.success) {
-  //   window.location.replace("/renderHome");
-  // }
+  if (data.success) {
+    window.location.replace("/dashboard");
+  }
 };
 
 const handleSignup = async (event) => {
@@ -38,9 +36,9 @@ const handleSignup = async (event) => {
     headers: {
       "Content-Type": "application/json",
     },
-
     body: JSON.stringify({ name, email, password, age, location }),
   });
+
   const data = await response.json();
 
   if (data.success) {
