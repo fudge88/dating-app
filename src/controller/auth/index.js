@@ -24,7 +24,7 @@ const login = async (req, res) => {
       });
     }
 
-    const validPassword = user.checkPassword(payload.password);
+    const validPassword = await user.checkPassword(payload.password);
 
     if (!validPassword) {
       return res.status(401).json({
