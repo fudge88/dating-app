@@ -8,7 +8,7 @@ const {
 
 const router = Router();
 
-router.get("/profile", renderProfile);
+router.get("/profile/:id", renderProfile);
 router.get("/matches", renderMatches);
 router.get("/message", renderMessage);
 

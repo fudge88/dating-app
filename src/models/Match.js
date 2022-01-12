@@ -31,6 +31,7 @@ const schema = {
   matched: {
     type: DataTypes.BOOLEAN,
     allowNull: false,
+    // default: false?
   },
 
   accepted_date: {
