@@ -9,7 +9,19 @@ const getRandomUser = async (req, res) => {
 
     const randomUserIndex = Math.floor(Math.random() * users.length);
     const randomUser = users[randomUserIndex];
-    res.json({ randomUser });
+
+    const userData = {
+      name: randomUser.name,
+      age: randomUser.age,
+      location: randomUser.location,
+      id: randomUser.id,
+      build: randomUser.build,
+      height: randomUser.height,
+      seriousness: randomUser.seriousness,
+      about_me: randomUser.about_me,
+    };
+
+    res.json({ userData });
   } catch (error) {
     return res
       .status(500)
