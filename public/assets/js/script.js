@@ -86,8 +86,29 @@ const startSearch = async () => {
     // body: JSON.stringify({ email, password }),
   });
 
-  const data = await response.json();
-  console.log(data);
+  const { userData } = await response.json();
+
+  const profileCard = ` <div class="profile-card card mx-auto m-5"style="width: 18rem;" id="profile-card">
+  <img class="card-img-top p-2" src="https://via.placeholder.com/300x300" alt="Card image cap" />
+  <div class="card-body">  
+    <h5 class="profile-name">${userData.name}, ${userData.age}</h5>
+    <h6 class="profile-location"><b>${userData.location}</b></h3>
+        <div class="profile-height"> <b>Height:</b>${userData.height}m</div>
+        <div class="profile-build"><b>Build:</b> ${userData.build}</div>
+        <div class="profile-serious"><b>Seriousness:</b>${userData.seriousness}
+        </div>
+    <div class="profile-bio">
+<b>Bio:</b>  ${userData.about_me}
+    </p>
+  </div>
+  <div class="profile-links">
+      <button type="button" id="no" class="btn btn-danger" >No</button>
+     <button type="button" id="view-more" data-id= ${userData.id} class="btn btn-info"> View Profile </button>
+          <button type="button" id="yes" data-id= ${userData.id} class="btn btn-success">Yes</button>
+      </div>
+ </div>`;
+  searchStartBtn.remove();
+  $("#search-container").append(profileCard);
 };
 
 loginForm.on("submit", handleLogin);
