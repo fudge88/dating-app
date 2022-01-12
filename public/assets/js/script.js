@@ -1,6 +1,7 @@
 const loginForm = $("#login-form");
 const signupForm = $("#signup-form");
 const profileCard = $("#profile-card");
+const searchStartBtn = $("#search-start-btn");
 
 const handleLogin = async (event) => {
   event.preventDefault();
@@ -76,6 +77,20 @@ const handleProfile = (event) => {
   }
 };
 
+const startSearch = async () => {
+  const response = await fetch("/api/search", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    // body: JSON.stringify({ email, password }),
+  });
+
+  const data = await response.json();
+  console.log(data);
+};
+
 loginForm.on("submit", handleLogin);
 signupForm.on("submit", handleSignup);
 profileCard.on("click", handleProfile);
+searchStartBtn.on("click", startSearch);
