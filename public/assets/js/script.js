@@ -61,7 +61,6 @@ const handleProfile = (event) => {
   }
 
   if (target.is(yesButton)) {
-    console.log("yes");
     const id = yesButton.data("id");
     // db request to add to match table
     // flash alert (if user is matched)
