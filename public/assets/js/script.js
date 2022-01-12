@@ -66,13 +66,24 @@ const handleYes = (event) => {
   // maybe controller to render this page can send random user on each load
 };
 
+const handleNo = (event) => {
+  const target = $(event.target);
+  const id = target.data("id");
+  // add id to local storage
+  $("#profile-card").remove();
+  startSearch();
+};
+
 const startSearch = async () => {
+  // get ids from local storage
+  // construct post body with list of ids to remove
+
   const response = await fetch("/api/search", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    // body: JSON.stringify({ email, password }),
+    body: JSON.stringify({ userIdsToSkip: [2, 4, 6] }),
   });
 
   const { userData } = await response.json();
@@ -91,7 +102,7 @@ const startSearch = async () => {
     </p>
   </div>
   <div class="profile-links">
-      <button type="button" id="no" class="btn btn-danger" >No</button>
+      <button type="button" id="no" data-id=${userData.id} class="btn btn-danger" >No</button>
      <button type="button" id="view-more" data-id= ${userData.id} class="btn btn-info"> View Profile </button>
           <button type="button" id="yes" data-id= ${userData.id} class="btn btn-success">Yes</button>
       </div>
@@ -101,7 +112,7 @@ const startSearch = async () => {
   console.log(userData.id);
   $("#search-container").append(profileCard);
 
-  $("#no").on("click", startSearch);
+  $("#no").on("click", handleNo);
   $("#view-more").on("click", handleProfile);
   $("#yes").on("click", handleYes);
 };

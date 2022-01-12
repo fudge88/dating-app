@@ -1,12 +1,18 @@
+const { Op } = require("sequelize");
+
 const { User } = require("../../models");
 
 const getRandomUser = async (req, res) => {
   try {
-    const allUsers = await User.findAll();
+    const loggedUser = req.session.user.id;
+    const userIdsToSkip = [...req.body.userIdsToSkip, loggedUser];
+    const allUsers = await User.findAll({
+      where: { id: { [Op.notIn]: userIdsToSkip } },
+    });
     const users = allUsers.map((user) => {
       return user.get({ plain: true });
     });
-
+    console.log(users);
     const randomUserIndex = Math.floor(Math.random() * users.length);
     const randomUser = users[randomUserIndex];
 
