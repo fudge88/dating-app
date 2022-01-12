@@ -50,31 +50,20 @@ const handleSignup = async (event) => {
 
 const handleProfile = (event) => {
   const target = $(event.target);
+  const id = target.data("id");
+  window.location.assign(`/profile/${id}`);
+};
 
-  const noButton = $("#no");
-  const profileButton = $("#view-more");
-  const yesButton = $("#yes");
-
-  if (target.is(noButton)) {
-    profileCard.remove();
-    // need to make db request to fetch another users data
-    // maybe controller to render this page can send random user on each load
-  }
-
-  if (target.is(yesButton)) {
-    const id = yesButton.data("id");
-    // db request to add to match table
-    // flash alert (if user is matched)
-    //  remove card
-    profileCard.remove();
-    // need to make db request to fetch another users data
-    // maybe controller to render this page can send random user on each load
-  }
-
-  if (target.is(profileButton)) {
-    const id = profileButton.data("id");
-    window.location.assign(`/profile/${id}`);
-  }
+const handleYes = (event) => {
+  const target = $(event.target);
+  const id = target.data("id");
+  // db request to add to match table
+  // flash alert (if user is matched)
+  //  remove card
+  $("#profile-card").remove();
+  startSearch();
+  // need to make db request to fetch another users data
+  // maybe controller to render this page can send random user on each load
 };
 
 const startSearch = async () => {
@@ -113,6 +102,8 @@ const startSearch = async () => {
   $("#search-container").append(profileCard);
 
   $("#no").on("click", startSearch);
+  $("#view-more").on("click", handleProfile);
+  $("#yes").on("click", handleYes);
 };
 
 loginForm.on("submit", handleLogin);
