@@ -93,9 +93,9 @@ const startSearch = async () => {
   <div class="card-body">  
     <h5 class="profile-name">${userData.name}, ${userData.age}</h5>
     <h6 class="profile-location"><b>${userData.location}</b></h3>
-        <div class="profile-height"> <b>Height:</b>${userData.height}m</div>
-        <div class="profile-build"><b>Build:</b> ${userData.build}</div>
-        <div class="profile-serious"><b>Seriousness:</b>${userData.seriousness}
+        <div class="profile-height"> <b>Height: </b>${userData.height}m</div>
+        <div class="profile-build"><b>Build: </b> ${userData.build}</div>
+        <div class="profile-serious"><b>Seriousness: </b>${userData.seriousness}
         </div>
     <div class="profile-bio">
 <b>Bio:</b>  ${userData.about_me}
@@ -107,8 +107,12 @@ const startSearch = async () => {
           <button type="button" id="yes" data-id= ${userData.id} class="btn btn-success">Yes</button>
       </div>
  </div>`;
-  searchStartBtn.remove();
+
+  $("#search-container").empty();
+  console.log(userData.id);
   $("#search-container").append(profileCard);
+
+  $("#no").on("click", startSearch);
 };
 
 loginForm.on("submit", handleLogin);
