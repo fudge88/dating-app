@@ -21,7 +21,7 @@ const handleLogin = async (event) => {
   const data = await response.json();
 
   if (data.success) {
-    window.location.replace("/profile");
+    window.location.replace("/search");
   }
 };
 
@@ -92,6 +92,7 @@ const startSearch = async () => {
 
   if (data) {
     // construct profile card
+    const parent = $("<div>");
 
     const profileCard = `<div class="profile-card card mx-auto m-5"style="width: 18rem;" id="profile-card">
   <img class="card-img-top p-2" src="https://via.placeholder.com/300x300" alt="Card image cap" />
@@ -114,8 +115,9 @@ const startSearch = async () => {
  </div>`;
 
     // append card to page
-    $("#search-container").empty();
-    $("#search-container").append(profileCard);
+    $("#start-search").remove();
+    parent.append(profileCard);
+    $("#search-container").append(parent);
 
     // add event listeners on card buttons
     $("#no").on("click", handleNo);

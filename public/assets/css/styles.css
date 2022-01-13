@@ -111,3 +111,10 @@ h3 {
 .item {
   background-color: var(--haze);
 }
+
+.jumbotron {
+  padding: 2rem 1rem;
+  margin-bottom: 2rem;
+  background-color: #e9ecef;
+  border-radius: 0.3rem;
+}
