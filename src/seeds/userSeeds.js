@@ -27,29 +27,11 @@ const userData = [
     build: "slim",
     seriousness: "high",
   },
-  // {
-  //   user_name: "lisa",
-  //   user_email: "lisa@email.com",
-  //   user_password: "password1",
-  //   user_age: 20,
-  //   user_gender: "female",
-  // },
-  // {
-  //   user_name: "maria",
-  //   user_email: "maria@email.com",
-  //   user_password: "password1",
-  //   user_age: 24,
-  //   user_gender: "female",
-  // },
-  // {
-  //   user_name: "jack",
-  //   user_email: "jack@email.com",
-  //   user_password: "password1",
-  //   user_age: 28,
-  //   user_gender: "male",
-  // },
 ];
 
-const seedUsers = () => User.bulkCreate(userData);
+const seedUsers = async () => {
+  const promises = userData.map((user) => User.create(user));
+  await Promise.all(promises);
+};
 
 module.exports = seedUsers;

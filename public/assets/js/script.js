@@ -1,5 +1,6 @@
 const loginForm = $("#login-form");
 const signupForm = $("#signup-form");
+const logout = $("#logout");
 
 const handleLogin = async (event) => {
   event.preventDefault();
@@ -18,7 +19,7 @@ const handleLogin = async (event) => {
   const data = await response.json();
 
   if (data.success) {
-    window.location.replace("/dashboard");
+    window.location.replace("/profile");
   }
 };
 
@@ -46,5 +47,19 @@ const handleSignup = async (event) => {
   }
 };
 
+const handleLogout = async () => {
+  const response = await fetch("/auth/logout", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  const data = await response.json();
+  if (data.success) {
+    window.location.replace("/");
+  }
+};
+
 loginForm.on("submit", handleLogin);
 signupForm.on("submit", handleSignup);
+logout.on("click", handleLogout);
