@@ -2,6 +2,7 @@ const loginForm = $("#login-form");
 const signupForm = $("#signup-form");
 const profileCard = $("#profile-card");
 const searchStartBtn = $("#search-start-btn");
+const logout = $("#logout");
 
 const handleLogin = async (event) => {
   event.preventDefault();
@@ -20,7 +21,7 @@ const handleLogin = async (event) => {
   const data = await response.json();
 
   if (data.success) {
-    window.location.replace("/dashboard");
+    window.location.replace("/profile");
   }
 };
 
@@ -128,7 +129,21 @@ const startSearch = async () => {
   }
 };
 
+const handleLogout = async () => {
+  const response = await fetch("/auth/logout", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  const data = await response.json();
+  if (data.success) {
+    window.location.replace("/");
+  }
+};
+
 loginForm.on("submit", handleLogin);
 signupForm.on("submit", handleSignup);
 profileCard.on("click", handleProfile);
 searchStartBtn.on("click", startSearch);
+logout.on("click", handleLogout);
