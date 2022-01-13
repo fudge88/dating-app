@@ -75,46 +75,57 @@ const handleNo = (event) => {
 };
 
 const startSearch = async () => {
-  // get ids from local storage
-  // construct post body with list of ids to remove
+  // skips users that are logged in or yes or no'd
+  const userIdsToSkip = JSON.parse(localStorage.getItem("userIdsToSkip")) || [];
 
+  // get random user from API
   const response = await fetch("/api/search", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ userIdsToSkip: [2, 4, 6] }),
+    body: JSON.stringify({ userIdsToSkip }),
   });
 
-  const { userData } = await response.json();
+  const { data } = await response.json();
 
-  const profileCard = ` <div class="profile-card card mx-auto m-5"style="width: 18rem;" id="profile-card">
+  if (data) {
+    // construct profile card
+
+    const profileCard = `<div class="profile-card card mx-auto m-5"style="width: 18rem;" id="profile-card">
   <img class="card-img-top p-2" src="https://via.placeholder.com/300x300" alt="Card image cap" />
   <div class="card-body">  
-    <h5 class="profile-name">${userData.name}, ${userData.age}</h5>
-    <h6 class="profile-location"><b>${userData.location}</b></h3>
-        <div class="profile-height"> <b>Height: </b>${userData.height}m</div>
-        <div class="profile-build"><b>Build: </b> ${userData.build}</div>
-        <div class="profile-serious"><b>Seriousness: </b>${userData.seriousness}
+    <h5 class="profile-name">${data.name}, ${data.age}</h5>
+    <h6 class="profile-location"><b>${data.location}</b></h6>
+        <div class="profile-height"> <b>Height: </b>${data.height}m</div>
+        <div class="profile-build"><b>Build: </b> ${data.build}</div>
+        <div class="profile-serious"><b>Seriousness: </b>${data.seriousness}
         </div>
     <div class="profile-bio">
-<b>Bio:</b>  ${userData.about_me}
+<b>Bio:</b>  ${data.about_me}
     </p>
   </div>
   <div class="profile-links">
-      <button type="button" id="no" data-id=${userData.id} class="btn btn-danger" >No</button>
-     <button type="button" id="view-more" data-id= ${userData.id} class="btn btn-info"> View Profile </button>
-          <button type="button" id="yes" data-id= ${userData.id} class="btn btn-success">Yes</button>
+      <button type="button" id="no" data-id=${data.id} class="btn btn-danger" >No</button>
+     <a href="/profile/${data.id}" class="class="btn btn-primary"> View Profile </a>
+          <button type="button" id="yes" data-id= ${data.id} class="btn btn-success">Yes</button>
       </div>
  </div>`;
 
-  $("#search-container").empty();
-  console.log(userData.id);
-  $("#search-container").append(profileCard);
+    // append card to page
+    $("#search-container").empty();
+    $("#search-container").append(profileCard);
 
-  $("#no").on("click", handleNo);
-  $("#view-more").on("click", handleProfile);
-  $("#yes").on("click", handleYes);
+    // add event listeners on card buttons
+    $("#no").on("click", handleNo);
+    $("#view-more").on("click", handleProfile);
+    $("#yes").on("click", handleYes);
+
+    userIdsToSkip.push(data.id);
+    localStorage.setItem("userIdsToSkip", JSON.stringify(userIdsToSkip));
+  } else {
+    console.log("TODO render no users");
+  }
 };
 
 loginForm.on("submit", handleLogin);

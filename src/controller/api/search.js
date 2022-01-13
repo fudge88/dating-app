@@ -15,19 +15,21 @@ const getRandomUser = async (req, res) => {
     console.log(users);
     const randomUserIndex = Math.floor(Math.random() * users.length);
     const randomUser = users[randomUserIndex];
+    if (randomUser) {
+      const userData = {
+        name: randomUser.name,
+        age: randomUser.age,
+        location: randomUser.location,
+        id: randomUser.id,
+        build: randomUser.build,
+        height: randomUser.height,
+        seriousness: randomUser.seriousness,
+        about_me: randomUser.about_me,
+      };
 
-    const userData = {
-      name: randomUser.name,
-      age: randomUser.age,
-      location: randomUser.location,
-      id: randomUser.id,
-      build: randomUser.build,
-      height: randomUser.height,
-      seriousness: randomUser.seriousness,
-      about_me: randomUser.about_me,
-    };
-
-    res.json({ userData });
+      return res.json({ success: true, data: userData });
+    }
+    return res.json({ success: true });
   } catch (error) {
     return res
       .status(500)
