@@ -118,3 +118,61 @@ h3 {
   background-color: #e9ecef;
   border-radius: 0.3rem;
 }
+
+.background {
+  background-image: linear-gradient(
+    to left bottom,
+    #ff0a54,
+    #ff524b,
+    #ff784b,
+    #fb9754,
+    #f7b267
+  );
+}
+
+.profile-card {
+  border-radius: 25px;
+  position: relative;
+  box-shadow: rgba(214, 4, 127, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(228, 9, 119, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(228, 8, 81, 0.09) 0px -3px 5px;
+}
+
+.card-summary {
+  position: absolute;
+  top: 11.5rem;
+  width: 16rem;
+  margin: 15px;
+  padding: 5px;
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(11.5px);
+  -webkit-backdrop-filter: blur(11.5px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.profile-links {
+  display: flex;
+  justify-content: space-around;
+}
+.view-profile {
+  display: flex;
+  flex-wrap: wrap;
+  width: min-content;
+  text-decoration: none;
+  font-weight: 700;
+  color: var(--hot-pink);
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.btn-style {
+  height: 50px;
+  width: 50px;
+  border-radius: 25px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(184, 11, 118, 0.12) 0px -12px 30px,
+    rgba(209, 20, 216, 0.12) 0px 4px 6px, rgba(218, 10, 79, 0.17) 0px 12px 13px,
+    rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
