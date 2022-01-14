@@ -214,6 +214,7 @@ h3 {
 .btn-styling {
   background-color: var(--hot-pink);
   color: white;
+  border-radius: 25px;
 }
 .btn-styling:hover {
   color: yellow;
