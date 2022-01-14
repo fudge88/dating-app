@@ -74,14 +74,6 @@ h3 {
 .navbar-light .navbar-nav .nav-link:hover {
   color: #cddc39;
 }
-/* navbar */
-
-/* .logo img {
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%);
-  height: 12rem;
-} */
 
 .navbar-nav {
   float: none;
@@ -172,10 +164,10 @@ h3 {
   width: 16rem;
   margin: 15px;
   padding: 5px;
-  background: rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.2);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  backdrop-filter: blur(11.5px);
-  -webkit-backdrop-filter: blur(11.5px);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.18);
 }
@@ -195,6 +187,37 @@ h3 {
   height: 50px;
   width: 50px;
   border-radius: 25px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(184, 11, 118, 0.12) 0px -12px 30px,
+    rgba(209, 20, 216, 0.12) 0px 4px 6px, rgba(218, 10, 79, 0.17) 0px 12px 13px,
+    rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.jumbotron-styling {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.lead {
+  font-weight: 500;
+}
+.btn-styling {
+  background-color: var(--hot-pink);
+  color: white;
+}
+.btn-styling:hover {
+  color: yellow;
+  transform: scale(1.1);
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
     rgba(184, 11, 118, 0.12) 0px -12px 30px,
     rgba(209, 20, 216, 0.12) 0px 4px 6px, rgba(218, 10, 79, 0.17) 0px 12px 13px,
