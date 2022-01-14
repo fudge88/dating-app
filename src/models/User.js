@@ -28,6 +28,11 @@ const schema = {
     allowNull: false,
     validate: { isNumeric: true },
   },
+  img: {
+    type: DataTypes.STRING,
+    allowNull: false,
+    validate: { isURL: true },
+  },
   location: {
     type: DataTypes.STRING,
     allowNull: false,
