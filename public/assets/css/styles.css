@@ -211,6 +211,11 @@ h3 {
 .lead {
   font-weight: 500;
 }
+
+.pink-text {
+  color: var(--hot-pink);
+}
+
 .btn-styling {
   background-color: var(--hot-pink);
   color: white;
