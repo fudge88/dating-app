@@ -31,25 +31,22 @@
 
   <body class="">
     <main>
-      <div class="video-container">
-        <video id="video_background" autoplay loop muted preload="auto">
-        <source src="./assets/img/crush.mp4" type="video/mp4">
-        Video not supported 
-        </video> 
-          <section class="container" id="search-container">
-            <div class="jumbotron-styling m-3" id="start-search">
-              <h1 class="display-4 pink-text">Make the first move</h1>
-              <p class="lead">
-                Start meeting people in your area, If you have an account sign in to use Crush on the web.
-              </p>
-              <hr class="my-4" />
-              <h5>Your match awaits your swipe-proval!</h5>
-              <div class="profile-links mt-4">
-                <a type="button" id="no" href="/login" class="btn text-btn" >Login</a>
-                <a type="button" id="yes" href="/signup" class="btn text-btn">Signup</a>
-              </div>
-            </div>
-          </section>
+      <form>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Email address</label>
+          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Password</label>
+          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+        </div>
+        <div class="form-check">
+          <input type="checkbox" class="form-check-input" id="exampleCheck1">
+          <label class="form-check-label" for="exampleCheck1">Check me out</label>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
     </main>
 
     <!-- footer -->
