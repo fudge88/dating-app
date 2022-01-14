@@ -96,47 +96,32 @@ const startSearch = async () => {
 
     const profileCard = `<body class="background">
     <div class="profile-card card mx-auto m-5"style="width: 18rem;" id="profile-card">
-        <div class="card-summary">
-            <h5 class="profile-name">${data.name}, <b>${data.age}</b></h5>
-            <h6 class="profile-location"><small>${data.location}</small></h6>
-              </div>
-        <img class="card-img-top p-2" src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt="Card image cap" />
-
-        <div class="card-body">  
-              <div class="profile-height"> <b>Height: </b>${data.height}</div>
-              <div class="profile-build"><b>Build: </b>${data.build}</div>
-              <div class="profile-serious"><b>Seriousness: </b>${data.seriousness}
-              </div>
-          <div class="profile-bio mt-2">
-      <b>Bio:</b>${data.about_me}
-          
+      <div class="card-summary">
+        <h5 class="profile-name">${data.name}, <b>${data.age}</b></h5>
+        <h6 class="profile-location"><small>${data.location}</small></h6>
+      </div>
+        <a href="/profile/${data.id}">
+        <img class="card-img-top" src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt="Card image cap" />
+        </a>
+      <div class="card-body">  
+        <div class="row">
+          <div class="col-6"><b>Height:</b></div>
+          <div class="col-6">${data.height}</div>
+          <div class="w-100"></div>
+          <div class="col-6"><b>Build:</b></div>
+          <div class="col-6">${data.build}</div>
+          <div class="w-100"></div>
+          <div class="col-6"><b>Seriousness:</b></div>
+          <div class="col-6">${data.seriousness}</div>
         </div>
+        <hr>
+          <div class="profile-bio mt-2">${data.about_me}</div>
+        <hr>
         <div class="profile-links">
-            <button type="button" id="no" data-id=${data.id} class="btn btn-style text-danger" ><i class="fas fa-times"></i></button>
-           <a href="/profile/${data.id}" class="view-profile">View Profile</a>
-                <button type="button" id="yes" data-id= ${data.id} class="btn btn-style text-success"><i class="fas fa-check"></i></button>
-            </div>
-       </div>`;
-
-    //     const profileCard = `<div class="profile-card card mx-auto m-5"style="width: 18rem;" id="profile-card">
-    //   <img class="card-img-top p-2" src="https://via.placeholder.com/300x300" alt="Card image cap" />
-    //   <div class="card-body">
-    //     <h5 class="profile-name">${data.name}, ${data.age}</h5>
-    //     <h6 class="profile-location"><b>${data.location}</b></h6>
-    //         <div class="profile-height"> <b>Height: </b>${data.height}m</div>
-    //         <div class="profile-build"><b>Build: </b> ${data.build}</div>
-    //         <div class="profile-serious"><b>Seriousness: </b>${data.seriousness}
-    //         </div>
-    //     <div class="profile-bio">
-    // <b>Bio:</b>  ${data.about_me}
-    //     </p>
-    //   </div>
-    //   <div class="profile-links">
-    //       <button type="button" id="no" data-id=${data.id} class="btn btn-danger" >No</button>
-    //      <a href="/profile/${data.id}" class="class="btn btn-primary"> View Profile </a>
-    //           <button type="button" id="yes" data-id= ${data.id} class="btn btn-success">Yes</button>
-    //       </div>
-    //  </div>`;
+          <button type="button" id="no" data-id=${data.id} class="btn btn-style text-danger" ><i class="fas fa-times"></i></button>
+          <button type="button" id="yes" data-id= ${data.id} class="btn btn-style text-success"><i class="fas fa-check"></i></button>
+        </div>
+      </div>`;
 
     // append card to page
     $("#start-search").remove();

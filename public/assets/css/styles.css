@@ -137,10 +137,15 @@ h3 {
     rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(228, 9, 119, 0.12) 0px 4px 6px,
     rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(228, 8, 81, 0.09) 0px -3px 5px;
 }
+.card-img-top {
+  height: 300px;
+  object-fit: cover;
+  border-radius: 25px 25px 0 0;
+}
 
 .card-summary {
   position: absolute;
-  top: 11.5rem;
+  top: 13rem;
   width: 16rem;
   margin: 15px;
   padding: 5px;
@@ -152,19 +157,15 @@ h3 {
   border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
+.hr {
+  max-width: 60%;
+  color: var(--dark-yellow);
+  border-radius: 50%;
+}
+
 .profile-links {
   display: flex;
   justify-content: space-around;
-}
-.view-profile {
-  display: flex;
-  flex-wrap: wrap;
-  width: min-content;
-  text-decoration: none;
-  font-weight: 700;
-  color: var(--hot-pink);
-  text-align: center;
-  text-transform: uppercase;
 }
 
 .btn-style {
