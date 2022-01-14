@@ -30,37 +30,38 @@
   </head>
 
   <body class="background">
-
-    <div class="profile-card card mx-auto m-5"style="width: 18rem;" id="profile-card">
-      <div class="card-summary">
-        <h5 class="profile-name">Bob Smith, <b>25</b></h5>
-        <h6 class="profile-location"><small>Birmingham</small></h6>
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <a class="navbar-brand logo" href="/">
+        <img src="./assets/img/logo.png" alt="" />
+      </a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="/"
+              >Home <span class="sr-only">(current)</span></a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/signup">Signup</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/login">Login</a>
+          </li>
+        </ul>
       </div>
-      <a href="/profile/${data.id}">
-      <img class="card-img-top" src="https://via.placeholder.com/300x300" alt="Card image cap" />
-</a>
-      <div class="card-body">  
-        <div class="row">
-          <div class="col-6"><b>Height:</b></div>
-          <div class="col-6">6'2ft</div>
-          <div class="w-100"></div>
-          <div class="col-6"><b>Build:</b></div>
-          <div class="col-6">Large</div>
-          <div class="w-100"></div>
-          <div class="col-6"><b>Seriousness:</b></div>
-          <div class="col-6">Marry Me</div>
-        </div>
-        <hr>
-        <div class="profile-bio mt-2">
-          You must be tired, cuz you've been walking through my mind all day!
-        </div>
-        <hr>
-        <div class="profile-links">
-          <button type="button" id="no" data-id=${data.id} class="btn btn-style text-danger" ><i class="fas fa-times"></i></button>
+    </nav>
 
-          <button type="button" id="yes" data-id= ${data.id} class="btn btn-style text-success"><i class="fas fa-check"></i></button>
-        </div>
-      </div>
     <!-- footer -->
 
     <!-- bootstrap -->

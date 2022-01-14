@@ -62,6 +62,18 @@ h3 {
   );
 }
 
+.nav-item {
+  font-family: "Anton", sans-serif;
+}
+
+.logo img {
+  width: 12rem;
+  padding-left: 2rem;
+}
+
+.navbar-light .navbar-nav .nav-link:hover {
+  color: #cddc39;
+}
 /* navbar */
 
 /* .logo img {
@@ -84,9 +96,20 @@ h3 {
 }
 .navbar-light .navbar-nav .nav-link {
   color: black;
-  font-family: "Road Rage", cursive;
   text-transform: uppercase;
-  font-size: 2.5rem;
+  font-size: 1.5rem;
+}
+
+.navbar-light .navbar-nav .nav-link.active {
+  color: #cddc39;
+}
+.nav-link:hover {
+  color: #cddc39;
+}
+
+.navbar-light .navbar-nav .nav-link.active,
+.navbar-light .navbar-nav .show > .nav-link {
+  color: #cddc39;
 }
 
 .hero-img {
