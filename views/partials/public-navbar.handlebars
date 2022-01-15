@@ -1,29 +1,30 @@
-<nav class="navbar navbar-expand-lg navbar-light">
-  <a class="navbar-brand logo" href="/">
-    <img src="./assets/img/logo.png" alt="" />
-  </a>
-  <button
-    class="navbar-toggler"
-    type="button"
-    data-toggle="collapse"
-    data-target="#navbarNav"
-    aria-controls="navbarNav"
-    aria-expanded="false"
-    aria-label="Toggle navigation"
-  >
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav">
-      <li class="nav-item active">
-        <a class="nav-link" href="/">Home</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/signup">Signup</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/login">Login</a>
-      </li>
-    </ul>
+<nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
+  <div class="container-fluid">
+    <a href="/" class="navbar-brand">
+      <img src="./assets/img/crush.png" height="100" alt="Crush Brand" />
+    </a>
+    <button
+      type="button"
+      class="navbar-toggler"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarCollapse"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <div class="navbar-nav">
+        <a href="/" class="nav-item nav-link navbar-text text-white">Home</a>
+      </div>
+      <div class="navbar-nav ms-auto">
+        <a
+          href="/profile"
+          class="nav-item nav-link navbar-text text-white"
+        >Signup</a>
+        <a
+          id="logout"
+          class="nav-item nav-link navbar-text text-white"
+        >Login</a>
+      </div>
+    </div>
   </div>
 </nav>
