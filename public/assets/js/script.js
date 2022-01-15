@@ -55,16 +55,29 @@ const handleProfile = (event) => {
   window.location.assign(`/profile/${id}`);
 };
 
-const handleYes = (event) => {
+const handleYes = async (event) => {
   const target = $(event.target);
-  const id = target.data("id");
-  // db request to add to match table
-  // flash alert (if user is matched)
-  //  remove card
+  const selectedUserId = target.attr("data-id");
+  console.log(selectedUserId);
+
+  const response = await fetch("/api/match", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ selectedUserId }),
+  });
+
+  const { data } = await response.json();
+
+  if (data.status === "MATCHED") {
+    alert("Matched");
+  } else {
+    console.log("Match initiated");
+  }
+
   $("#profile-card").remove();
   startSearch();
-  // need to make db request to fetch another users data
-  // maybe controller to render this page can send random user on each load
 };
 
 const handleNo = (event) => {
@@ -119,7 +132,7 @@ const startSearch = async () => {
         <hr>
         <div class="profile-links">
           <button type="button" id="no" data-id=${data.id} class="btn btn-style text-danger" ><i class="fas fa-times"></i></button>
-          <button type="button" id="yes" data-id= ${data.id} class="btn btn-style text-success"><i class="fas fa-check"></i></button>
+          <button type="button" id="yes" data-id=${data.id} class="btn btn-style text-success"><i class="fas fa-check"></i></button>
         </div>
       </div>`;
 

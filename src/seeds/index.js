@@ -12,8 +12,8 @@ const seedAll = async () => {
   await seedUsers();
   console.log("\n----- USER SEEDED -----\n");
 
-  await seedMatches();
-  console.log("\n----- MATCH SEEDED -----\n");
+  // await seedMatches();
+  // console.log("\n----- MATCH SEEDED -----\n");
 
   process.exit(0);
 };
