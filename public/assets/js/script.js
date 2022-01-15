@@ -4,48 +4,178 @@ const profileCard = $("#profile-card");
 const searchStartBtn = $("#search-start-btn");
 const logout = $("#logout");
 
+const getErrorsSignUp = ({
+  username,
+  email,
+  password,
+  confirmPassword,
+  location,
+  age,
+  build,
+  height,
+  seriousness,
+  gender,
+  sexuality,
+  aboutMe,
+}) => {
+  const errors = {};
+
+  if (!email || !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
+    errors.email = "Invalid email address";
+  }
+
+  if (
+    !password ||
+    !/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/.test(
+      password
+    )
+  ) {
+    errors.password = "Invalid password";
+  }
+
+  if (!confirmPassword || password !== confirmPassword) {
+    errors.confirmPassword = "Passwords do not match";
+  }
+
+  if (!firstName) {
+    errors.firstName = "First name is required";
+  }
+
+  if (!username) {
+    errors.username = "Username is required";
+  }
+
+  if (!height || +height <= 0) {
+    errors.height = "Height is required and cannot be 0";
+  }
+
+  if (!weight || +weight <= 0) {
+    errors.weight = "Weight is required and cannot be 0";
+  }
+
+  if (!age || +age <= 0) {
+    errors.age = "Age is required and cannot be 0";
+  }
+
+  return errors;
+};
+
+const renderErrorMessages = (errors) => {
+  const fields = [
+    "username",
+    "email",
+    "password",
+    "confirmPassword",
+    "location",
+    "age",
+    "build",
+    "height",
+    "seriousness",
+    "gender",
+    "sexuality",
+    "aboutMe",
+  ];
+
+  fields.forEach((field) => {
+    const errorDiv = $(`#${field}-error`);
+
+    if (errors[field]) {
+      errorDiv.text(errors[field]);
+    } else {
+      errorDiv.text("");
+    }
+  });
+};
+
 const handleLogin = async (event) => {
   event.preventDefault();
 
   const email = $("#email-input").val();
   const password = $("#password-input").val();
 
-  const response = await fetch("/auth/login", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ email, password }),
-  });
+  $("#login-error").text("");
 
-  const data = await response.json();
+  if (!email || !password) {
+    $("#login-error").text("Please enter email and password");
+  } else {
+    const response = await fetch("/auth/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email, password }),
+    });
 
-  if (data.success) {
-    window.location.replace("/search");
+    const data = await response.json();
+
+    if (data.success) {
+      window.location.assign("/search");
+    } else {
+      $("#login-error").text("Incorrect username or password");
+    }
   }
 };
 
 const handleSignup = async (event) => {
   event.preventDefault();
 
-  const name = $("#username-input").val();
+  const username = $("#username-input").val();
   const email = $("#email-input").val();
   const password = $("#password-input").val();
+  const confirmPassword = $("#confirmPassword-input").val();
   const age = $("#age-input").val();
   const location = $("#location-input").val();
+  const build = $("#build-input").val();
+  const height = $("#height-input").val();
+  const seriousness = $("#seriousness-input").val();
+  const gender = $("#gender-input").val();
+  const sexuality = $("#sexuality-input").val();
+  const aboutMe = $("#aboutMe-input").val();
 
-  const response = await fetch("/auth/signup", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ name, email, password, age, location }),
+  const errorMessages = getErrorsSignUp({
+    username,
+    email,
+    password,
+    confirmPassword,
+    location,
+    age,
+    build,
+    height,
+    seriousness,
+    gender,
+    sexuality,
+    aboutMe,
   });
 
-  const data = await response.json();
+  renderErrorMessages(errorMessages);
 
-  if (data.success) {
-    window.location.replace("/login");
+  if (!Object.keys(errorMessages).length) {
+    const response = await fetch("/auth/signup", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        username,
+        email,
+        password,
+        confirmPassword,
+        location,
+        age,
+        build,
+        height,
+        seriousness,
+        gender,
+        sexuality,
+        aboutMe,
+      }),
+    });
+
+    const data = await response.json();
+
+    if (data.success) {
+      window.location.replace("/login");
+    }
   }
 };
 

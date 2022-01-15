@@ -1,84 +1,135 @@
-<header>
-  {{> public-navbar}}
-</header>
+    <main>
+      <div class="container">
+        <div class="mx-auto my-4">
+          <h1 class="text-center">Sign Up Form</h1>
+          <hr />
+          <form id="signup-form form-container" class="p-4">
+            <div class="row">
+              <div class="mb-3 col-md-6 col-12">
+                <label for="username-input" class="form-label">Name</label>
+                <input type="text" class="form-control" id="username-input" />
+                <div class="form-text error" id="username-error"></div>
+              </div>
+              <div class="mb-3 col-md-6 col-12">
+                <label for="email-input" class="form-label">Email</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="email-input"
+                  aria-describedby="emailHelp"
+                />
+                
+              </div>
+              <div class="form-text error" id="email-error"></div>
+            </div>
+            <div class="row">
+              <div class="mb-3 col-md-6 col-12">
+                <label for="password-input" class="form-label">Password</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="password-input"
+                />
+              </div>
+              <div class="mb-3 col-md-6 col-12">
+                <label for="confirm-password-input" class="form-label"
+                  >Confirm Password</label
+                >
+                <input
+                  type="password"
+                  class="form-control"
+                  id="confirmPassword-input"
+                />
+              </div>
+              <div class="form-text error" id="confirmPassword-error"></div>
+            </div>
+            <div class="row">
+              <div class="mb-3 col-md-6 col-12">
+                <label for="age-input" class="form-label">Age</label>
+                <input type="text" class="form-control" id="age-input" />
+                <div class="form-text error" id="age-error"></div>
+              </div>
+              <div class="mb-3 col-md-6 col-12">
+                <label for="location-input" class="form-label">Location</label>
+                <input type="text" class="form-control" id="location-input" />
+                <div class="form-text error" id="location-error"></div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="mb-3 col-md-6 col-12">
+                <label for="build-input" class="form-label">Build</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="build-input"
+                />
+                <div class="form-text error" id="build-error"></div>
+              </div>
+              <div class="mb-3 col-md-6 col-12">
+                <label for="height-input" class="form-label">Height</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="height-input"
+                />
+                <div class="form-text error" id="height-error"></div>
+              </div>
+              
+            </div>
+            <div class="row">
+              <div class="col-md-4 col-12">
+                <label class="visually-hidden" for="autoSizingSelect"
+                  >Preference</label
+                >
+                <select class="form-select" id="autoSizingSelect gender-input">
+                  <option selected>Gender</option>
+                  <option value="1">Male</option>
+                  <option value="2">Female</option>
+                  <option value="3">Other</option>
+                </select>
+                <div class="form-text error" id="gender-error"></div>
+              </div>
+              <div class="col-md-4 col-12">
+                <label class="visually-hidden" for="autoSizingSelect"
+                  >Preference</label
+                >
+                <select class="form-select" id="autoSizingSelect sexuality-input">
+                  <option selected>Sexuality</option>
+                  <option value="1">Straight</option>
+                  <option value="2">Bisexual</option>
+                  <option value="3">Gay</option>
+                  <option value="3">Other</option>
+                </select>
+                <div class="form-text error" id="sexuality-error"></div>
+              </div>
+              <div class="col-md-4 col-12">
+                <label class="visually-hidden" for="autoSizingSelect"
+                  >Preference</label
+                >
+                <select class="form-select" id="autoSizingSelect seriousness-input">
+                  <option selected>Seriousness</option>
+                  <option value="low">Fling Ting</option>
+                  <option value="medium">Lets see where it goes</option>
+                  <option value="high">Marry Me</option>
+                </select>
+                <div class="form-text error" id="seriousness-error"></div>
+              </div>
+        
+            <!-- box 3 -->
+            <div class="row">
+              <div class="mb-3">
+                <label for="aboutMe-input" class="form-label mt-4">About Me </label>
+                <textarea name="" id="" cols="30" rows="10"  type="text"
+                class="form-control"
+                id="aboutMe-input"></textarea>
+              </div>
+              <div class="form-text error" id="aboutMe-error"></div>
+            </div>
 
-<main >
-<div class="container">
-  <div class="mx-auto my-4 ">
-    <h1 class="text-center">Sign Up Form</h1>
-    <hr />
-    <form id="signup-form" class="p-4">
-      <div class="mb-3">
-        <label for="username-input" class="form-label">Name</label>
-        <input type="text" class="form-control" id="username-input" />
+            <button type="submit" class="btn btn-styling">
+              Create Account
+            </button>
+          </form>
+        </div>
       </div>
-      <div class="mb-3">
-        <label for="email-input" class="form-label">Email</label>
-        <input
-          type="email"
-          class="form-control"
-          id="email-input"
-          aria-describedby="emailHelp"
-        />
-      </div>
-      <div class="mb-3">
-        <label for="password-input" class="form-label">Password</label>
-        <input type="password" class="form-control" id="password-input" />
-      </div>
-      <div class="mb-3">
-        <label for="confirm-password-input" class="form-label">Confirm Password</label>
-        <input
-          type="password"
-          class="form-control"
-          id="confirm-password-input"
-        />
-      </div>
-      <div class="mb-3">
-        <label for="age-input" class="form-label">Age</label>
-        <input type="text" class="form-control" id="age-input" />
-      </div>
-      <div class="mb-3">
-        <label for="location-input" class="form-label">Location</label>
-        <input type="text" class="form-control" id="location-input" />
-      </div>
-
- <div class="mb-3">
-        <label for="password-input" class="form-label">Build</label>
-        <input type="password" class="form-control" id="password-input" />
-      </div>
-      
-       <div class="mb-3">
-        <label for="password-input" class="form-label">Height</label>
-        <input type="password" class="form-control" id="password-input" />
-      </div>
-       <div class="mb-3">
-        <label for="password-input" class="form-label">Seriousness</label>
-        <input type="password" class="form-control" id="password-input" />
-      </div>
-       <div class="mb-3">
-        <label for="password-input" class="form-label">Gender</label>
-        <input type="password" class="form-control" id="password-input" />
-      </div>
-       <div class="mb-3">
-        <label for="password-input" class="form-label">Sexuality</label>
-        <input type="password" class="form-control" id="password-input" />
-      </div>
-       <div class="mb-3">
-        <label for="password-input" class="form-label">About Me </label>
-        <input type="password" class="form-control" id="password-input" />
-      </div>
-<div class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Dropdown button
-  </button>
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <a class="dropdown-item" href="#">Action</a>
-    <a class="dropdown-item" href="#">Another action</a>
-    <a class="dropdown-item" href="#">Something else here</a>
-  </div>
-</div>
-      <button type="submit" class="btn btn-styling">Create Account</button>
-    </form>
-  </div>
-</div>
-</main>
+    </main>
