@@ -151,7 +151,7 @@ h3 {
 .btn-styling {
   background-color: var(--hot-pink);
   color: white;
-  border-radius: 25px;
+  border-radius: 10px;
 }
 .btn-styling:hover {
   color: yellow;
@@ -172,4 +172,15 @@ h3 {
   height: auto;
   /* z-index: 69; */
   overflow: hidden;
+}
+
+.form-label {
+  color: var(--hot-pink);
+}
+.form-control:hover,
+.form-control:active {
+  border: 1px solid #dc3589;
+}
+.subheading-txt {
+  color: var(--hot-pink);
 }
