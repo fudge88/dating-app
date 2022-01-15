@@ -19,6 +19,7 @@ const getRandomUser = async (req, res) => {
       const userData = {
         name: randomUser.name,
         age: randomUser.age,
+        img: randomUser.img,
         location: randomUser.location,
         id: randomUser.id,
         build: randomUser.build,

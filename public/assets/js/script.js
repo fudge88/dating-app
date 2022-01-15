@@ -101,7 +101,7 @@ const startSearch = async () => {
         <h6 class="profile-location"><small>${data.location}</small></h6>
       </div>
         <a href="/profile/${data.id}">
-        <img class="card-img-top" src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt="Card image cap" />
+        <img class="card-img-top" src="${data.img}" alt="Card image cap" />
         </a>
       <div class="card-body">  
         <div class="row">
