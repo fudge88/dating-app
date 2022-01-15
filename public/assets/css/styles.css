@@ -87,6 +87,9 @@ h3 {
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.18);
 }
+.card {
+  border: none;
+}
 
 .hr {
   max-width: 60%;
@@ -149,6 +152,7 @@ h3 {
 }
 
 .btn-styling {
+  width: auto;
   background-color: var(--hot-pink);
   color: white;
   border-radius: 10px;
@@ -183,4 +187,9 @@ h3 {
 }
 .subheading-txt {
   color: var(--hot-pink);
+}
+
+.signup-form {
+  background-color: #ffffff2e;
+  border-radius: 10px;
 }
