@@ -149,6 +149,7 @@ h3 {
 }
 
 .btn-styling {
+  width: auto;
   background-color: var(--hot-pink);
   color: white;
   border-radius: 10px;
@@ -183,4 +184,9 @@ h3 {
 }
 .subheading-txt {
   color: var(--hot-pink);
+}
+
+.signup-form {
+  background-color: #ffffff2e;
+  border-radius: 10px;
 }
