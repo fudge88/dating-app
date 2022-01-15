@@ -3,13 +3,15 @@ const { Router } = require("express");
 const {
   renderProfile,
   renderMatches,
-  renderMessage,
+  //renderMessage,
+  renderSearch,
 } = require("../../controller/view/privateController");
 
 const router = Router();
 
-router.get("/profile", renderProfile);
+router.get("/search", renderSearch);
+router.get("/profile/:id", renderProfile);
 router.get("/matches", renderMatches);
-router.get("/message", renderMessage);
+// router.get("/message", renderMessage);
 
 module.exports = router;
