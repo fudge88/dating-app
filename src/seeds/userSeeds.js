@@ -63,6 +63,7 @@ const userData = [
   {
     name: "Eli Wood",
     email: "eli.wood@example.com",
+    age: 28,
     password: "chrysler",
     img: "https://randomuser.me/api/portraits/men/75.jpg",
     gender: "male",
