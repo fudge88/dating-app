@@ -55,16 +55,29 @@ const handleProfile = (event) => {
   window.location.assign(`/profile/${id}`);
 };
 
-const handleYes = (event) => {
+const handleYes = async (event) => {
   const target = $(event.target);
-  const id = target.data("id");
-  // db request to add to match table
-  // flash alert (if user is matched)
-  //  remove card
+  const selectedUserId = target.attr("data-id");
+  console.log(selectedUserId);
+
+  const response = await fetch("/api/match", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ selectedUserId }),
+  });
+
+  const { data } = await response.json();
+
+  if (data.status === "MATCHED") {
+    alert("Matched");
+  } else {
+    console.log("Match initiated");
+  }
+
   $("#profile-card").remove();
   startSearch();
-  // need to make db request to fetch another users data
-  // maybe controller to render this page can send random user on each load
 };
 
 const handleNo = (event) => {
@@ -101,7 +114,7 @@ const startSearch = async () => {
         <h6 class="profile-location"><small>${data.location}</small></h6>
       </div>
         <a href="/profile/${data.id}">
-        <img class="card-img-top" src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt="Card image cap" />
+        <img class="card-img-top" src="${data.img}" alt="Card image cap" />
         </a>
       <div class="card-body">  
         <div class="row">
@@ -119,7 +132,7 @@ const startSearch = async () => {
         <hr>
         <div class="profile-links">
           <button type="button" id="no" data-id=${data.id} class="btn btn-style text-danger" ><i class="fas fa-times"></i></button>
-          <button type="button" id="yes" data-id= ${data.id} class="btn btn-style text-success"><i class="fas fa-check"></i></button>
+          <button type="button" id="yes" data-id=${data.id} class="btn btn-style text-success"><i class="fas fa-check"></i></button>
         </div>
       </div>`;
 
