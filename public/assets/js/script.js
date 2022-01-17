@@ -42,7 +42,7 @@ const getErrorsSignUp = ({
   }
 
   if (!name) {
-    errors.username = "Username is required";
+    errors.name = "Username is required";
   }
 
   if (!height || +height <= 0) {
@@ -143,9 +143,9 @@ const handleSignup = async (event) => {
   const location = $("#location-input").val();
   const build = $("#build-input").val();
   const height = $("#height-input").val();
-  const seriousness = $("#seriousness-input").val();
-  const gender = $("#gender-input").val();
-  const sexuality = $("#sexuality-input").val();
+  const seriousness = $("#seriousness-input").find(":selected").text();
+  const gender = $("#gender-input").find(":selected").text();
+  const sexuality = $("#sexuality-input").find(":selected").text();
   const aboutMe = $("#aboutMe-input").val();
 
   const errorMessages = getErrorsSignUp({
