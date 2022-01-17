@@ -122,7 +122,7 @@ const userData = [
   },
 
   {
-    name: "Intisar Mohamed  ",
+    name: "Intisar Mohamed",
     email: "Intisar@email.com",
     password: "Password123!!",
     age: 21,
