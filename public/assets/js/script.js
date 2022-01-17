@@ -2,6 +2,7 @@ const loginForm = $("#login-form");
 const signupForm = $("#signup-form");
 const profileCard = $("#profile-card");
 const searchStartBtn = $("#search-start-btn");
+const modalContainer = $("#modal-container");
 const logout = $("#logout");
 
 const getErrorsSignUp = ({
@@ -201,13 +202,32 @@ const handleYes = async (event) => {
   const { data } = await response.json();
 
   if (data.status === "MATCHED") {
-    alert("Matched");
+    renderModal();
+    // alert("Matched");
+    // function to render the modal which renders on window load
   } else {
     console.log("Match initiated");
   }
 
   $("#profile-card").remove();
   startSearch();
+};
+
+const renderModal = function () {
+  const loadModal = `<div class="modal fade is-active" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-body text-center">
+        Its a MATCH 
+      </div>
+      <div>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>`;
+  modalContainer.append(loadModal);
+  $(".modal").modal("show");
 };
 
 const handleNo = (event) => {
@@ -258,11 +278,11 @@ const startSearch = async () => {
           <div class="col-6">${data.seriousness}</div>
         </div>
         <hr>
-          <div class="profile-bio mt-2">${data.about_me}</div>
+          <div class="profile-bio mt-2">${data.aboutMe}</div>
         <hr>
         <div class="profile-links">
           <button type="button" id="no" data-id=${data.id} class="btn btn-style text-danger" ><i class="fas fa-times"></i></button>
-          <button type="button" id="yes" data-id=${data.id} class="btn btn-style text-success"><i class="fas fa-check"></i></button>
+          <button type="button" id="yes" data-id=${data.id} class="btn btn-style text-success"><i data-id=${data.id} class="fas fa-check"></i></button>
         </div>
       </div>`;
 
@@ -295,6 +315,8 @@ const handleLogout = async () => {
     window.location.replace("/");
   }
 };
+
+// $(window).on("load", renderModal);
 
 loginForm.on("submit", handleLogin);
 signupForm.on("submit", handleSignup);
