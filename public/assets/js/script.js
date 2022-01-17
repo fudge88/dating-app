@@ -219,6 +219,7 @@ const renderModal = function () {
     <div class="modal-content">
       <div class="modal-body text-center">
         Its a MATCH 
+        <img src="../img/gifs/match-perfect.gif" alt="">
       </div>
       <div>
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
