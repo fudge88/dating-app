@@ -5,7 +5,7 @@ const searchStartBtn = $("#search-start-btn");
 const logout = $("#logout");
 
 const getErrorsSignUp = ({
-  username,
+  name,
   email,
   password,
   confirmPassword,
@@ -37,11 +37,11 @@ const getErrorsSignUp = ({
     errors.confirmPassword = "Passwords do not match";
   }
 
-  if (!firstName) {
-    errors.firstName = "First name is required";
+  if (!location) {
+    errors.location = "Location name is required";
   }
 
-  if (!username) {
+  if (!name) {
     errors.username = "Username is required";
   }
 
@@ -49,12 +49,28 @@ const getErrorsSignUp = ({
     errors.height = "Height is required and cannot be 0";
   }
 
-  if (!weight || +weight <= 0) {
-    errors.weight = "Weight is required and cannot be 0";
+  if (!build) {
+    errors.build = "Build is required";
   }
 
   if (!age || +age <= 0) {
     errors.age = "Age is required and cannot be 0";
+  }
+
+  if (!seriousness) {
+    errors.seriousness = "Seriousness is required";
+  }
+
+  if (!gender) {
+    errors.gender = "Gender is required";
+  }
+
+  if (!sexuality) {
+    errors.sexuality = "sexual preference is required";
+  }
+
+  if (!aboutMe) {
+    errors.aboutMe = "Short summary is required";
   }
 
   return errors;
@@ -62,7 +78,7 @@ const getErrorsSignUp = ({
 
 const renderErrorMessages = (errors) => {
   const fields = [
-    "username",
+    "name",
     "email",
     "password",
     "confirmPassword",
@@ -119,7 +135,7 @@ const handleLogin = async (event) => {
 const handleSignup = async (event) => {
   event.preventDefault();
 
-  const username = $("#username-input").val();
+  const name = $("#name-input").val();
   const email = $("#email-input").val();
   const password = $("#password-input").val();
   const confirmPassword = $("#confirmPassword-input").val();
@@ -133,7 +149,7 @@ const handleSignup = async (event) => {
   const aboutMe = $("#aboutMe-input").val();
 
   const errorMessages = getErrorsSignUp({
-    username,
+    name,
     email,
     password,
     confirmPassword,
@@ -156,7 +172,7 @@ const handleSignup = async (event) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        username,
+        name,
         email,
         password,
         confirmPassword,

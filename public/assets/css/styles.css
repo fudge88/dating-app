@@ -193,3 +193,8 @@ h3 {
   background-color: #ffffff2e;
   border-radius: 10px;
 }
+
+.error {
+  font-weight: 700;
+  color: #f00;
+}
