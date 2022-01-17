@@ -227,6 +227,25 @@ h3 {
 .lead {
   font-weight: 500;
 }
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+.message {
+  height: 5rem;
+  padding: 1.5rem;
+  border: solid 1px var(--hot-pink);
+  background-color: rgba(255, 255, 255, 0.315);
+  border-radius: 10px;
+  color: var(--hot-pink);
+  font-size: 1.2rem;
+}
+.match-link {
+  margin-top: 4rem;
+}
 
 .pink-text {
   color: var(--hot-pink);
@@ -236,6 +255,7 @@ h3 {
   background-color: var(--hot-pink);
   color: white;
   border-radius: 25px;
+  border: none;
 }
 .btn-styling:hover {
   color: yellow;
@@ -260,4 +280,9 @@ h3 {
 
 .card-img-top {
   height: 200px;
+}
+
+.overlay {
+  background-color: rgba(255, 255, 255, 0.342);
+  border-radius: 10px;
 }
