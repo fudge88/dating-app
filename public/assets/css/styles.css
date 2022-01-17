@@ -257,3 +257,7 @@ h3 {
   /* z-index: 69; */
   overflow: hidden;
 }
+
+.card-img-top {
+  height: 200px;
+}
