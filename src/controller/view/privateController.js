@@ -1,3 +1,4 @@
+const { Op } = require("sequelize");
 const { User, Match } = require("../../models");
 
 const renderMatches = (req, res) => {
@@ -17,31 +18,42 @@ const renderProfile = async (req, res) => {
   const matchesFromDb = await Match.findAll({
     where: {
       matched: true,
-      match_request_from: loggedInUserId,
+      [Op.or]: [
+        { match_request_to: loggedInUserId },
+        { match_request_from: loggedInUserId },
+      ],
     },
     include: [
+      {
+        model: User,
+        foreignKey: "match_request_from",
+        attributes: {
+          exclude: ["password"],
+        },
+        as: "fromUser",
+      },
       {
         model: User,
         foreignKey: "match_request_to",
         attributes: {
           exclude: ["password"],
         },
+        as: "toUser",
       },
     ],
   });
   const matches = matchesFromDb.map((match) => {
     return match.get({ plain: true });
   });
-  console.log({
+
+  return res.render("profile", {
     user,
     matches: matches.map((match) => {
-      return match.user;
-    }),
-  });
-  res.render("profile", {
-    user,
-    matches: matches.map((match) => {
-      return match.user;
+      if (match.fromUser.id === loggedInUserId) {
+        return match.toUser;
+      } else {
+        return match.fromUser;
+      }
     }),
   });
 };

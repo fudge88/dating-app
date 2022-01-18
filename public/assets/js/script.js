@@ -3,7 +3,6 @@ const signupForm = $("#signup-form");
 const profileCard = $("#profile-card");
 const searchStartBtn = $("#search-start-btn");
 const restartContainer = $("#restart-container");
-const modalContainer = $("#modal-container");
 const logout = $("#logout");
 
 const getErrorsSignUp = ({
@@ -205,7 +204,6 @@ const handleProfile = (event) => {
 const handleYes = async (event) => {
   const target = $(event.target);
   const selectedUserId = target.attr("data-id");
-  console.log(selectedUserId);
 
   const response = await fetch("/api/match", {
     method: "POST",
@@ -221,15 +219,13 @@ const handleYes = async (event) => {
     renderModal();
     // alert("Matched");
     // function to render the modal which renders on window load
-  } else {
-    console.log("Match initiated");
   }
 
   $("#profile-card").remove();
   startSearch();
 };
 
-const renderModal = function () {
+const renderModal = () => {
   const loadModal = `<div class="modal fade is-active" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
@@ -243,7 +239,7 @@ const renderModal = function () {
     </div>
   </div>
 </div>`;
-  modalContainer.append(loadModal);
+  $("#modal-container").append(loadModal);
   $(".modal").modal("show");
 };
 
@@ -271,8 +267,7 @@ const startSearch = async () => {
   const { data } = await response.json();
 
   if (data) {
-    // construct profile card
-    // const parent = $("<div>");
+   
 
     const profileCard = `<div class="profile-card card mx-auto m-5"style="width: 18rem;" id="profile-card">
       <div class="card-summary">
@@ -303,14 +298,11 @@ const startSearch = async () => {
       </div>
     </div>`;
 
-    // append card to page
-    // $("#start-search").remove();
+   
     $("#search-container").empty();
 
     $("#search-container").append(profileCard);
-    // $("#search-container").append(parent);
-
-    // add event listeners on card buttons
+   
     $("#no").on("click", handleNo);
     $("#view-more").on("click", handleProfile);
     $("#yes").on("click", handleYes);
@@ -318,9 +310,7 @@ const startSearch = async () => {
     userIdsToSkip.push(data.id);
     localStorage.setItem("userIdsToSkip", JSON.stringify(userIdsToSkip));
   } else {
-    //console.log("TODO render no users");
-
-    // const parent = $("<div>");
+  
     $("#search-container").empty();
 
     const renderCard = `<div class="jumbotron-styling m-3" id="start-search">
