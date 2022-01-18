@@ -252,8 +252,7 @@ const startSearch = async () => {
     // construct profile card
     const parent = $("<div>");
 
-    const profileCard = `<body class="background">
-    <div class="profile-card card mx-auto m-5"style="width: 18rem;" id="profile-card">
+    const profileCard = `<div class="profile-card card mx-auto m-5"style="width: 18rem;" id="profile-card">
       <div class="card-summary">
         <h5 class="profile-name">${data.name}, <b>${data.age}</b></h5>
         <h6 class="profile-location"><small>${data.location}</small></h6>
@@ -279,7 +278,8 @@ const startSearch = async () => {
           <button type="button" id="no" data-id=${data.id} class="btn btn-style text-danger" ><i class="fas fa-times"></i></button>
           <button type="button" id="yes" data-id=${data.id} class="btn btn-style text-success"><i class="fas fa-check"></i></button>
         </div>
-      </div>`;
+      </div>
+    </div>`;
 
     // append card to page
     $("#start-search").remove();
