@@ -222,7 +222,7 @@ const renderModal = function () {
         <div><img src="https://c.tenor.com/WogtNEb_jCwAAAAC/match-perfect.gif" alt="this slowpoke moves"  width="250" /></div>
       </div>
       <div class="d-flex justify-content-center">
-        <button type="button" class="btn btn-styling mb-2" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-styling mb-2" data-bs-dismiss="modal">Continue browsing..</button>
       </div>
     </div>
   </div>
@@ -300,19 +300,21 @@ const startSearch = async () => {
     userIdsToSkip.push(data.id);
     localStorage.setItem("userIdsToSkip", JSON.stringify(userIdsToSkip));
   } else {
-    // console.log("TODO render no users");
-    // const parent = $("<div>");
-    // const renderCard = `<div class="jumbotron-styling m-3" id="start-search">
-    //       <h1 class="display-4 pink-text">Hello, {{data.name}}!</h1>
-    //       <p class="lead">
-    //         If you want to see all the potential matches:
-    //       </p>
-    //       <hr class="my-4" />
-    //       <h5>Get clicking and find your perfect match</h5>
-    //       <button class="btn btn-styling mt-2" id="search-start-btn">see again
-    //       </button>`;
-    // parent.append(renderCard);
-    // $("#start-search").append(parent);
+    //console.log("TODO render no users");
+
+    const parent = $("<div>");
+
+    const renderCard = `<div class="jumbotron-styling m-3" id="start-search">
+          <h1 class="display-4 pink-text">Hello, {{data.name}}!</h1>
+          <p class="lead">
+            If you want to see all the potential matches:
+          </p>
+          <hr class="my-4" />
+          <h5>Get clicking and find your perfect match</h5>
+          <button class="btn btn-styling mt-2" id="search-start-btn">see again
+          </button>`;
+    parent.append(renderCard);
+    $("#start-search").append(parent);
   }
 };
 
@@ -328,8 +330,6 @@ const handleLogout = async () => {
     window.location.replace("/");
   }
 };
-
-// $(window).on("load", renderModal);
 
 loginForm.on("submit", handleLogin);
 signupForm.on("submit", handleSignup);
