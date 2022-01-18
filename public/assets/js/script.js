@@ -2,6 +2,7 @@ const loginForm = $("#login-form");
 const signupForm = $("#signup-form");
 const profileCard = $("#profile-card");
 const searchStartBtn = $("#search-start-btn");
+const restartContainer = $("#restart-container");
 const modalContainer = $("#modal-container");
 const logout = $("#logout");
 
