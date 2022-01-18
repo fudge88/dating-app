@@ -40,7 +40,7 @@
             <div class="row">
               <div class="mb-3 col-md-6 col-12">
                 <label for="age-input" class="form-label">Age</label>
-                <input type="text" class="form-control" id="age-input" />
+                <input type="number" class="form-control" id="age-input" />
                 <div class="form-text error" id="age-error"></div>
               </div>
               <div class="mb-3 col-md-6 col-12">
@@ -51,18 +51,26 @@
             </div>
             <div class="row">
               <div class="mb-3 col-md-6 col-12">
-                <label for="build-input" class="form-label">Build</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="build-input"
-                />
+               <label class="form-label" for="build-input"
+                  >Build</label
+                >
+                <select class="form-select" id="build-input">
+                  <option selected> Build </option>
+                  <option value="slim">Slim</option>
+                  <option value="athletic">Athletic</option>
+                  <option value="medium">Medium</option>
+                   <option value="curvy">Curvy</option>
+                  <option value="large">Large</option>
+                </select>
                 <div class="form-text error" id="build-error"></div>
               </div>
               <div class="mb-3 col-md-6 col-12">
-                <label for="height-input" class="form-label">Height</label>
+                <label for="height-input" class="form-label">Height (M)</label>
                 <input
-                  type="text"
+                  type="number"
+                  step="0.01"
+                  value="1.25"
+                  min="0"
                   class="form-control"
                   id="height-input"
                 />

@@ -143,7 +143,7 @@ const handleSignup = async (event) => {
   const location = $("#location-input").val();
   const build = $("#build-input").val();
   const height = $("#height-input").val();
-  const seriousness = $("#seriousness-input").find(":selected").text();
+  const seriousness = $("#seriousness-input").find(":selected").val();
   const gender = $("#gender-input").find(":selected").text();
   const sexuality = $("#sexuality-input").find(":selected").text();
   const aboutMe = $("#aboutMe-input").val();
@@ -175,7 +175,6 @@ const handleSignup = async (event) => {
         name,
         email,
         password,
-        confirmPassword,
         location,
         age,
         build,
