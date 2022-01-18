@@ -7,7 +7,7 @@ const modalContainer = $("#modal-container");
 const logout = $("#logout");
 
 const getErrorsSignUp = ({
-  username,
+  name,
   email,
   password,
   confirmPassword,
@@ -39,24 +39,40 @@ const getErrorsSignUp = ({
     errors.confirmPassword = "Passwords do not match";
   }
 
-  if (!firstName) {
-    errors.firstName = "First name is required";
+  if (!location) {
+    errors.location = "Location name is required";
   }
 
-  if (!username) {
-    errors.username = "Username is required";
+  if (!name) {
+    errors.name = "Username is required";
   }
 
   if (!height || +height <= 0) {
     errors.height = "Height is required and cannot be 0";
   }
 
-  if (!weight || +weight <= 0) {
-    errors.weight = "Weight is required and cannot be 0";
+  if (!build) {
+    errors.build = "Build is required";
   }
 
   if (!age || +age <= 0) {
     errors.age = "Age is required and cannot be 0";
+  }
+
+  if (!seriousness) {
+    errors.seriousness = "Seriousness is required";
+  }
+
+  if (!gender) {
+    errors.gender = "Gender is required";
+  }
+
+  if (!sexuality) {
+    errors.sexuality = "sexual preference is required";
+  }
+
+  if (!aboutMe) {
+    errors.aboutMe = "Short summary is required";
   }
 
   return errors;
@@ -64,7 +80,7 @@ const getErrorsSignUp = ({
 
 const renderErrorMessages = (errors) => {
   const fields = [
-    "username",
+    "name",
     "email",
     "password",
     "confirmPassword",
@@ -121,7 +137,7 @@ const handleLogin = async (event) => {
 const handleSignup = async (event) => {
   event.preventDefault();
 
-  const username = $("#username-input").val();
+  const name = $("#name-input").val();
   const email = $("#email-input").val();
   const password = $("#password-input").val();
   const confirmPassword = $("#confirmPassword-input").val();
@@ -129,13 +145,13 @@ const handleSignup = async (event) => {
   const location = $("#location-input").val();
   const build = $("#build-input").val();
   const height = $("#height-input").val();
-  const seriousness = $("#seriousness-input").val();
-  const gender = $("#gender-input").val();
-  const sexuality = $("#sexuality-input").val();
+  const seriousness = $("#seriousness-input").find(":selected").val();
+  const gender = $("#gender-input").find(":selected").text();
+  const sexuality = $("#sexuality-input").find(":selected").text();
   const aboutMe = $("#aboutMe-input").val();
 
   const errorMessages = getErrorsSignUp({
-    username,
+    name,
     email,
     password,
     confirmPassword,
@@ -158,10 +174,9 @@ const handleSignup = async (event) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        username,
+        name,
         email,
         password,
-        confirmPassword,
         location,
         age,
         build,
@@ -259,8 +274,7 @@ const startSearch = async () => {
     // construct profile card
     // const parent = $("<div>");
 
-    const profileCard = `<body class="background">
-    <div class="profile-card card mx-auto m-5"style="width: 18rem;" id="profile-card">
+    const profileCard = `<div class="profile-card card mx-auto m-5"style="width: 18rem;" id="profile-card">
       <div class="card-summary">
         <h5 class="profile-name">${data.name}, <b>${data.age}</b></h5>
         <h6 class="profile-location"><small>${data.location}</small></h6>
@@ -286,7 +300,8 @@ const startSearch = async () => {
           <button type="button" id="no" data-id=${data.id} class="btn btn-style text-danger" ><i class="fas fa-times"></i></button>
           <button type="button" id="yes" data-id=${data.id} class="btn btn-style text-success"><i data-id=${data.id} class="fas fa-check"></i></button>
         </div>
-      </div>`;
+      </div>
+    </div>`;
 
     // append card to page
     // $("#start-search").remove();
