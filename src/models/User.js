@@ -30,7 +30,7 @@ const schema = {
   },
   img: {
     type: DataTypes.STRING,
-    allowNull: false,
+    allowNull: true,
     validate: { isURL: true },
   },
   location: {
