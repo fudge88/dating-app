@@ -2,6 +2,7 @@ const loginForm = $("#login-form");
 const signupForm = $("#signup-form");
 const profileCard = $("#profile-card");
 const searchStartBtn = $("#search-start-btn");
+const restartContainer = $("#restart-container");
 const modalContainer = $("#modal-container");
 const logout = $("#logout");
 
@@ -300,7 +301,21 @@ const startSearch = async () => {
     userIdsToSkip.push(data.id);
     localStorage.setItem("userIdsToSkip", JSON.stringify(userIdsToSkip));
   } else {
-    console.log("TODO render no users");
+    //console.log("TODO render no users");
+
+    const parent = $("<div>");
+
+    const renderCard = `<div class="jumbotron-styling m-3" id="start-search">
+            <h1 class="display-4 pink-text">Hello, {{data.name}}!</h1>
+            <p class="lead">
+              If you want to see all the potential matches:
+            </p>
+            <hr class="my-4" />
+            <h5>Get clicking and find your perfect match</h5>
+            <button class="btn btn-styling mt-2" id="search-start-btn">see again
+            </button>`;
+    parent.append(renderCard);
+    $("#start-search").append(parent);
   }
 };
 
