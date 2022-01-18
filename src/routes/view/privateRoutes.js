@@ -10,7 +10,7 @@ const {
 const router = Router();
 
 router.get("/search", renderSearch);
-router.get("/profile/:id", renderProfile);
+router.get("/profile", renderProfile);
 router.get("/matches", renderMatches);
 // router.get("/message", renderMessage);
 

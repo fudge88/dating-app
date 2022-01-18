@@ -28,13 +28,13 @@ body {
   margin: 0;
   padding: 0;
   background-color: rgba(245, 227, 63, 0);
-  font-family: "Lato", sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 h1,
 h2,
 h3 {
-  font-family: "Anton", sans-serif;
+  font-family: "Staatliches", cursive;
 }
 
 .background {
@@ -49,7 +49,7 @@ h3 {
 }
 
 .nav-item {
-  font-family: "Anton", sans-serif;
+  font-family: "Staatliches", cursive;
 }
 
 .navbar-nav .nav-link {
@@ -129,10 +129,10 @@ h3 {
 }
 
 .jumbotron-styling {
-  position: fixed;
+  /* position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); */
   text-align: center;
   padding: 1rem;
   background: rgba(255, 255, 255, 0.5);
@@ -145,6 +145,26 @@ h3 {
 
 .lead {
   font-weight: 500;
+}
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+.message {
+  margin: 5px;
+  height: 5rem;
+  padding: 1.5rem;
+  border: solid 1px var(--hot-pink);
+  background-color: rgba(255, 255, 255, 0.315);
+  border-radius: 10px;
+  color: var(--hot-pink);
+  font-size: 1.2rem;
+}
+.match-link {
+  margin-top: 4rem;
 }
 
 .pink-text {
@@ -174,10 +194,18 @@ h3 {
   max-height: 100%;
   width: auto;
   height: auto;
-  /* z-index: 69; */
   overflow: hidden;
 }
 
+.card-img {
+  height: 200px;
+  object-fit: cover;
+}
+
+.overlay {
+  background-color: rgba(255, 255, 255, 0.342);
+  border-radius: 10px;
+}
 .form-label {
   color: var(--hot-pink);
 }
@@ -204,11 +232,9 @@ h3 {
 }
 
 @media (max-width: 575.98px) {
-  ...;
 }
 
 @media (max-width: 767.98px) {
-  ...;
 }
 
 @media (max-width: 991.98px) {
@@ -218,5 +244,4 @@ h3 {
 }
 
 @media (max-width: 1199.98px) {
-  ...;
 }
