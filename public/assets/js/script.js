@@ -257,7 +257,7 @@ const startSearch = async () => {
 
   if (data) {
     // construct profile card
-    const parent = $("<div>");
+    // const parent = $("<div>");
 
     const profileCard = `<body class="background">
     <div class="profile-card card mx-auto m-5"style="width: 18rem;" id="profile-card">
@@ -289,9 +289,11 @@ const startSearch = async () => {
       </div>`;
 
     // append card to page
-    $("#start-search").remove();
-    parent.append(profileCard);
-    $("#search-container").append(parent);
+    // $("#start-search").remove();
+    $("#search-container").empty();
+
+    $("#search-container").append(profileCard);
+    // $("#search-container").append(parent);
 
     // add event listeners on card buttons
     $("#no").on("click", handleNo);
@@ -303,10 +305,11 @@ const startSearch = async () => {
   } else {
     //console.log("TODO render no users");
 
-    const parent = $("<div>");
+    // const parent = $("<div>");
+    $("#search-container").empty();
 
     const renderCard = `<div class="jumbotron-styling m-3" id="start-search">
-          <h1 class="display-4 pink-text">Hello, {{data.name}}!</h1>
+          <h1 class="display-4 pink-text">Hello</h1>
           <p class="lead">
             If you want to see all the potential matches:
           </p>
@@ -314,8 +317,15 @@ const startSearch = async () => {
           <h5>Get clicking and find your perfect match</h5>
           <button class="btn btn-styling mt-2" id="search-start-btn">see again
           </button>`;
-    parent.append(renderCard);
-    $("#start-search").append(parent);
+
+    $("#search-container").append(renderCard);
+
+    const clearLocalStorage = () => {
+      localStorage.clear();
+      startSearch();
+    };
+
+    $("#search-start-btn").on("click", clearLocalStorage);
   }
 };
 
