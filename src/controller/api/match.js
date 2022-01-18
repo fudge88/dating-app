@@ -42,6 +42,18 @@ const verifyAndCreateMatch = async (req, res) => {
   }
 };
 
-const deleteMatchById = (req, res) => {};
+const deleteMatchById = async (req, res) => {
+  try {
+    const matchData = await Match.destroy({ where: { id: req.params.id } });
+    if (!matchData) {
+      res.status(404).json({ message: "Failed to delete match ID" });
+      return;
+    }
+    res.json(matchData);
+  } catch (error) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+};
 
 module.exports = { verifyAndCreateMatch, deleteMatchById };

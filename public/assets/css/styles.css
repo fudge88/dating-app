@@ -52,9 +52,12 @@ h3 {
   font-family: "Staatliches", cursive;
 }
 
-.logo img {
-  width: 12rem;
+.navbar-nav .nav-link {
   padding-left: 2rem;
+}
+
+.navbar-custom .navbar-text {
+  font-size: 1.5rem;
 }
 
 .profile-card {
@@ -64,6 +67,7 @@ h3 {
     rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(228, 9, 119, 0.12) 0px 4px 6px,
     rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(228, 8, 81, 0.09) 0px -3px 5px;
 }
+
 .card-img-top {
   height: 300px;
   object-fit: cover;
@@ -82,6 +86,9 @@ h3 {
   -webkit-backdrop-filter: blur(3px);
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.18);
+}
+.card {
+  border: none;
 }
 
 .hr {
@@ -165,10 +172,10 @@ h3 {
 }
 
 .btn-styling {
+  width: auto;
   background-color: var(--hot-pink);
   color: white;
-  border-radius: 25px;
-  border: none;
+  border-radius: 10px;
 }
 .btn-styling:hover {
   color: yellow;
@@ -198,4 +205,43 @@ h3 {
 .overlay {
   background-color: rgba(255, 255, 255, 0.342);
   border-radius: 10px;
+}
+.form-label {
+  color: var(--hot-pink);
+}
+.form-control:hover,
+.form-control:active {
+  border: 1px solid #dc3589;
+}
+.subheading-txt {
+  color: var(--hot-pink);
+}
+
+.signup-form {
+  background-color: #ffffff2e;
+  border-radius: 10px;
+}
+
+.form-select {
+  color: var(--hot-pink);
+}
+
+.error {
+  font-weight: 700;
+  color: #f00;
+}
+
+@media (max-width: 575.98px) {
+}
+
+@media (max-width: 767.98px) {
+}
+
+@media (max-width: 991.98px) {
+  .jumbotron-styling {
+    width: 90%;
+  }
+}
+
+@media (max-width: 1199.98px) {
 }

@@ -68,8 +68,8 @@ const signup = async (req, res) => {
         "age",
         "location",
         "gender",
-        "sexual_preference",
-        "about_me",
+        "sexuality",
+        "aboutMe",
         "height",
         "build",
         "seriousness",
@@ -79,7 +79,19 @@ const signup = async (req, res) => {
 
     if (
       !isAllRequiredFieldsPresent(
-        ["name", "email", "password", "age", "location"],
+        [
+          "name",
+          "email",
+          "password",
+          "age",
+          "location",
+          "gender",
+          "sexuality",
+          "aboutMe",
+          "height",
+          "build",
+          "seriousness",
+        ],
         payload
       )
     ) {
