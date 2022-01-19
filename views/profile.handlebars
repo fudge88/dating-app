@@ -4,53 +4,51 @@
 
 <main class="container">
   <div class="updateModal-container"></div>
-      <section class="jumbotron-styling">
-      <div class="mt-4">
-        <div class="row">
-          <div class="col-sm text-left">
-            <img
-              src="{{user.img}}"
-              alt=""
-              style="height: 15rem"
-            />
-            <div class="m-2">
-              <h2>{{user.name}}, {{user.age}}</h2>
-              <h4>{{user.location}}</h4>
-              <div><b>Seriousness: </b>{{user.seriousness}}</div>
-              
-              <button class="btn-styling mt-4 p-3" onclick="renderUpdateModal({name:'{{user.name}}', age:'{{user.age}}' ,sexuality:'{{user.sexuality}}',aboutMe:'{{user.aboutMe}}',gender:'{{user.gender}}' ,build:'{{user.build}}', height:'{{user.height}}', location:'{{user.location}}', seriousness:'{{user.seriousness}}', userId:'{{user.id}}'})" id="{{user.id}}">Update info</button>
-            </div>
+  <section class="jumbotron-styling">
+    <div class="mt-4">
+      <div class="row">
+        <div class="col-sm text-left">
+          <img src="{{user.img}}" alt="" style="height: 15rem" />
+          <div class="m-2">
+            <h2>{{user.name}}, {{user.age}}</h2>
+            <h4>{{user.location}}</h4>
+            <div><b>Seriousness: </b>{{user.seriousness}}</div>
+
+            <button class="btn-styling mt-4 p-3"
+              onclick="renderUpdateModal({name:'{{user.name}}', age:'{{user.age}}' ,sexuality:'{{user.sexuality}}',aboutMe:'{{user.aboutMe}}',gender:'{{user.gender}}' ,build:'{{user.build}}', height:'{{user.height}}', location:'{{user.location}}', seriousness:'{{user.seriousness}}', userId:'{{user.id}}'})"
+              id="{{user.id}}">Update info</button>
           </div>
-            <div class="col-sm text-right">
-              <div class="m-2 mt-4">
-              <h3>My Details</h3>
-              <p><b>Height: </b>{{user.height}}</p>
-              <p><b>Build: </b>{{user.build}}</p>
-              <p><b>Gender: </b>{{user.gender}}</p>
-              <p><b>Sexuality: </b>{{user.sexuality}}</p>
-              <h3 class="mt-4">About Me</h3>
-              <p>
-                {{user.aboutMe}}
-              </p>
-              </div>
-            </div>
+        </div>
+        <div class="col-sm text-right">
+          <div class="m-2 mt-4">
+            <h3>My Details</h3>
+            <p><b>Height: </b>{{user.height}}</p>
+            <p><b>Build: </b>{{user.build}}</p>
+            <p><b>Gender: </b>{{user.gender}}</p>
+            <p><b>Sexuality: </b>{{user.sexuality}}</p>
+            <h3 class="mt-4">About Me</h3>
+            <p>
+              {{user.aboutMe}}
+            </p>
           </div>
         </div>
       </div>
-      <div class="row mt-4">
-        <div class="col-sm">
-          <hr />
-          <h3 class="text-center pink-text">{{user.name}}'s Matches</h3>
-          <div class="row justify-content-center">
-            {{#if matches.length}}
-              {{#each matches}}
-                {{> profile-card}}
-              {{/each}}
-            {{else}}
-              <h1>NO MATCHES</h1>
-            {{/if}}
-          </div>
+    </div>
+    </div>
+    <div class="row mt-4">
+      <div class="col-sm">
+        <hr />
+        <h3 class="text-center pink-text">{{user.name}}'s Matches</h3>
+        <div class="row justify-content-center">
+          {{#if matches.length}}
+          {{#each matches}}
+          {{> profile-card}}
+          {{/each}}
+          {{else}}
+          <h1>NO MATCHES</h1>
+          {{/if}}
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 </main>
