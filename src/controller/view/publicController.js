@@ -3,11 +3,17 @@ const renderHome = async (req, res) => {
 };
 
 const renderLogin = (req, res) => {
-  res.render("login");
+  if (req.session.loggedIn) {
+    return res.redirect("/profile");
+  }
+  return res.render("login");
 };
 
 const renderSignUp = (req, res) => {
-  res.render("signup");
+  if (req.session.loggedIn) {
+    return res.redirect("/profile");
+  }
+  return res.render("signup");
 };
 
 module.exports = { renderHome, renderLogin, renderSignUp };
