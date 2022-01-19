@@ -143,6 +143,7 @@ const handleSignup = async (event) => {
   const confirmPassword = $("#confirmPassword-input").val();
   const age = $("#age-input").val();
   const location = $("#location-input").val();
+  // update build input field (for dropdown)
   const build = $("#build-input").val();
   const height = $("#height-input").val();
   const seriousness = $("#seriousness-input").find(":selected").val();
@@ -376,6 +377,23 @@ const renderUpdateModal = (user) => {
    </div>`;
   updateModalContainer.append(modal);
   $(".modal").modal("show");
+
+  const updateUser = (event) => {
+    event.preventDefault();
+
+    const updatedUser = {
+      name: $("#name-input").val(),
+      location: $("#location-input").val(),
+      build: $("#build-input").find(":selected").val(),
+      height: $("#height-input").val(),
+      gender: $("#gender-input").find(":selected").val(),
+      sexuality: $("#sexuality-input").find(":selected").val(),
+      seriousness: $("#seriousness-input").find(":selected").val(),
+      aboutMe: $("#aboutMe-input").val(),
+    };
+  };
+
+  $("#update-form").on("submit", updateUser);
 };
 
 const renderModal = () => {
