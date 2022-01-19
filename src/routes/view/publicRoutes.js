@@ -3,7 +3,6 @@ const router = Router();
 
 const {
   renderHome,
-  renderSearchPage,
   renderLogin,
   renderSignUp,
 } = require("../../controller/view/publicController");

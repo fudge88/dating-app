@@ -4,6 +4,7 @@ const profileCard = $("#profile-card");
 const searchStartBtn = $("#search-start-btn");
 const restartContainer = $("#restart-container");
 const updateModalContainer = $(".updateModal-container");
+const pickUpContainer = $("#pickup-line");
 const logout = $("#logout");
 
 const getErrorsSignUp = ({
@@ -218,8 +219,6 @@ const handleYes = async (event) => {
 
   if (data.status === "MATCHED") {
     renderModal();
-    // alert("Matched");
-    // function to render the modal which renders on window load
   }
 
   $("#profile-card").remove();
@@ -251,7 +250,7 @@ const renderUpdateModal = (user) => {
                 <label for="age-input" class="form-label">Age</label>
                 <input type="number" class="form-control" value=${
                   user.age
-                }id="age-input" />
+                } id="age-input" />
                 <div class="form-text error" id="age-error"></div>
               </div>
               
@@ -371,9 +370,8 @@ const renderUpdateModal = (user) => {
                   id="aboutMe-input">${user.aboutMe}</textarea>
                   <div class="form-text error" id="aboutMe-error"></div>
               </div>
-              </div>
-  
-              <button type="submit" class="btn btn-styling" id="update-btn">
+              </div>  
+              <button type="submit" class="btn btn-styling" data-bs-dismiss="modal" id="update-btn">
               Update Account
               </button>
           </form>
@@ -533,6 +531,23 @@ const handleLogout = async () => {
     window.location.replace("/");
   }
 };
+
+const getPickupLine = () => {
+  const pickUpURL = "https://getpickuplines.herokuapp.com/lines/random";
+  fetch(pickUpURL, { mode: "no-cors" })
+    .then((res) => res.json())
+    .then((data) => {
+      console.log("data", data);
+    });
+  // .then((result) => {
+  //   console.log(result);
+  // });
+  // console.log();
+  // return pickUp;
+  pickUpContainer.append();
+  //   console.log(pickUpResponse);
+};
+getPickupLine();
 
 loginForm.on("submit", handleLogin);
 signupForm.on("submit", handleSignup);
