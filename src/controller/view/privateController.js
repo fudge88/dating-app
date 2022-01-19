@@ -58,10 +58,6 @@ const renderProfile = async (req, res) => {
   });
 };
 
-// const renderMessage = (req, res) => {
-//   res.render("message");
-// };
-
 const renderSearch = (req, res) => {
   res.render("search");
 };

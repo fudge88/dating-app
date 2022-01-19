@@ -126,7 +126,7 @@ const handleLogin = async (event) => {
     const data = await response.json();
 
     if (data.success) {
-      window.location.assign("/search");
+      window.location.assign("/profile");
     } else {
       $("#login-error").text("Incorrect username or password");
     }
@@ -225,6 +225,122 @@ const handleYes = async (event) => {
   startSearch();
 };
 
+const renderUpdateModal = () => {
+  `<main class="container">
+   
+  <div class="modal is-active" >
+  <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+      <div class="modal-body text-center">
+
+          <h1 class="text-center">Update Information</h1>
+          <hr />
+
+          <form id="update-form" class="p-4">
+              <div class="row">
+              <div class="mb-3 col-md-6 col-12">
+                  <label for="name-input" class="form-label">Name</label>
+                  <input type="text" class="form-control" id="name-input" />
+                  <div class="form-text error" id="name-error"></div>
+              </div>
+              
+              <div class="mb-3 col-md-6 col-12">
+                  <label for="location-input" class="form-label">Location</label>
+                  <input type="text" class="form-control" id="location-input" />
+                  <div class="form-text error" id="location-error"></div>
+              </div>
+              </div>
+              
+              <div class="row">
+              <div class="mb-3 col-md-6 col-12">
+                  <label class="form-label" for="build-input"
+                  >Build</label
+                  >
+                  <select class="form-select" id="build-input">
+                  <option selected> Build </option>
+                  <option value="slim">Slim</option>
+                  <option value="athletic">Athletic</option>
+                  <option value="medium">Medium</option>
+                      <option value="curvy">Curvy</option>
+                  <option value="large">Large</option>
+                  </select>
+                  <div class="form-text error" id="build-error"></div>
+              </div>
+              <div class="mb-3 col-md-6 col-12">
+                  <label for="height-input" class="form-label">Height (M)</label>
+                  <input
+                  type="number"
+                  step="0.01"
+                  value="1.25"
+                  min="0"
+                  class="form-control"
+                  id="height-input"
+                  />
+                  <div class="form-text error" id="height-error"></div>
+              </div>
+              
+              </div>
+              
+              <div class="row">
+              <div class="col-md-4 col-12">
+                  <label class="visually-hidden" for="autoSizingSelect"
+                  >Gender</label
+                  >
+                  <select class="form-select" id="gender-input">
+                  <option selected>Gender</option>
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                  <option value="other">Other</option>
+                  </select>
+                  <div class="form-text error" id="gender-error"></div>
+              </div>
+              <div class="col-md-4 col-12">
+                  <label class="visually-hidden" for="autoSizingSelect"
+                  >Sexuality</label
+                  >
+                  <select class="form-select" id="sexuality-input">
+                  <option selected>Sexuality</option>
+                  <option value="straight">Straight</option>
+                  <option value="bisexual">Bisexual</option>
+                  <option value="gay">Gay</option>
+                  <option value="other">Other</option>
+                  </select>
+                  <div class="form-text error" id="sexuality-error"></div>
+              </div>
+              <div class="col-md-4 col-12">
+                  <label class="visually-hidden" for="autoSizingSelect"
+                  >Seriousness</label
+                  >
+                  <select class="form-select" id="seriousness-input">
+                  <option selected>Seriousness</option>
+                  <option value="low">Fling Ting</option>
+                  <option value="medium">Lets see where it goes</option>
+                  <option value="high">Marry Me</option>
+                  </select>
+                  <div class="form-text error" id="seriousness-error"></div>
+              </div>
+          
+              <div class="row">
+              <div class="mb-3">
+                  <label for="aboutMe-input" class="form-label mt-4">About Me </label>
+                  <textarea cols="30" rows="10"  type="text"
+                  class="form-control"
+                  id="aboutMe-input"></textarea>
+                  <div class="form-text error" id="aboutMe-error"></div>
+              </div>
+              </div>
+  
+              <button type="submit" class="btn btn-styling" id="update-btn">
+              Update Account
+              </button>
+          </form>
+          </div>
+      </div>
+      </div>
+      </div>
+   </main>`;
+};
+
 const renderModal = () => {
   const loadModal = `<div class="modal fade is-active" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
@@ -267,8 +383,6 @@ const startSearch = async () => {
   const { data } = await response.json();
 
   if (data) {
-   
-
     const profileCard = `<div class="profile-card card mx-auto m-5"style="width: 18rem;" id="profile-card">
       <div class="card-summary">
         <h5 class="profile-name">${data.name}, <b>${data.age}</b></h5>
@@ -298,11 +412,10 @@ const startSearch = async () => {
       </div>
     </div>`;
 
-   
     $("#search-container").empty();
 
     $("#search-container").append(profileCard);
-   
+
     $("#no").on("click", handleNo);
     $("#view-more").on("click", handleProfile);
     $("#yes").on("click", handleYes);
@@ -310,7 +423,6 @@ const startSearch = async () => {
     userIdsToSkip.push(data.id);
     localStorage.setItem("userIdsToSkip", JSON.stringify(userIdsToSkip));
   } else {
-  
     $("#search-container").empty();
 
     const renderCard = `<div class="jumbotron-styling m-3" id="start-search">
@@ -351,4 +463,5 @@ loginForm.on("submit", handleLogin);
 signupForm.on("submit", handleSignup);
 profileCard.on("click", handleProfile);
 searchStartBtn.on("click", startSearch);
+updateInfoBtn.on("click", handleUpdate);
 logout.on("click", handleLogout);
