@@ -1,5 +1,3 @@
-const { User } = require("../../models");
-
 const renderHome = async (req, res) => {
   res.render("home");
 };

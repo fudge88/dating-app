@@ -1,10 +1,6 @@
 const { Op } = require("sequelize");
 const { User, Match } = require("../../models");
 
-const renderMatches = (req, res) => {
-  res.render("matches");
-};
-
 const renderProfile = async (req, res) => {
   const { id: loggedInUserId } = req.session.user;
 
@@ -62,4 +58,4 @@ const renderSearch = (req, res) => {
   res.render("search");
 };
 
-module.exports = { renderProfile, renderMatches, renderSearch };
+module.exports = { renderProfile, renderSearch };

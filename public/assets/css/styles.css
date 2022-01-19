@@ -129,6 +129,13 @@ h3 {
     rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
+.jumbotron-home-card {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 .jumbotron-styling {
   /* position: fixed;
   top: 50%;
