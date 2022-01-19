@@ -535,20 +535,18 @@ const handleLogout = async () => {
 
 const getPickupLine = () => {
   const pickUpURL = "https://getpickuplines.herokuapp.com/lines/random";
-  const pickUpResponse = fetch(pickUpURL)
-    .then((response) => {
-      return response.json();
-    })
-    .then((result) => {
-      console.log(result);
+  fetch(pickUpURL, { mode: "no-cors" })
+    .then((res) => res.json())
+    .then((data) => {
+      console.log("data", data);
     });
-  //  const pickUpData = await pickUpResponse.json();
-
-  const pickUp = getPickupLine();
-
-  return pickUp;
+  // .then((result) => {
+  //   console.log(result);
+  // });
+  // console.log();
+  // return pickUp;
   pickUpContainer.append();
-  console.log(pickUpResponse);
+  //   console.log(pickUpResponse);
 };
 getPickupLine();
 
