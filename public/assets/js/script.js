@@ -391,6 +391,16 @@ const renderUpdateModal = (user) => {
       seriousness: $("#seriousness-input").find(":selected").val(),
       aboutMe: $("#aboutMe-input").val(),
     };
+
+    const response = await fetch("/api/profile", {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(updatedUser),
+    });
+
+    const { data } = await response.json();
   };
 
   $("#update-form").on("submit", updateUser);
