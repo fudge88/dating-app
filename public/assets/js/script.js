@@ -218,8 +218,6 @@ const handleYes = async (event) => {
 
   if (data.status === "MATCHED") {
     renderModal();
-    // alert("Matched");
-    // function to render the modal which renders on window load
   }
 
   $("#profile-card").remove();
@@ -251,7 +249,7 @@ const renderUpdateModal = (user) => {
                 <label for="age-input" class="form-label">Age</label>
                 <input type="number" class="form-control" value=${
                   user.age
-                }id="age-input" />
+                } id="age-input" />
                 <div class="form-text error" id="age-error"></div>
               </div>
               
@@ -371,9 +369,8 @@ const renderUpdateModal = (user) => {
                   id="aboutMe-input">${user.aboutMe}</textarea>
                   <div class="form-text error" id="aboutMe-error"></div>
               </div>
-              </div>
-  
-              <button type="submit" class="btn btn-styling" id="update-btn">
+              </div>  
+              <button type="submit" class="btn btn-styling" data-bs-dismiss="modal" id="update-btn">
               Update Account
               </button>
           </form>
