@@ -143,8 +143,7 @@ const handleSignup = async (event) => {
   const confirmPassword = $("#confirmPassword-input").val();
   const age = $("#age-input").val();
   const location = $("#location-input").val();
-  // update build input field (for dropdown)
-  const build = $("#build-input").val();
+  const build = $("#build-input").find(":selected").val();
   const height = $("#height-input").val();
   const seriousness = $("#seriousness-input").find(":selected").val();
   const gender = $("#gender-input").find(":selected").text();
@@ -238,7 +237,7 @@ const renderUpdateModal = (user) => {
           <h1 class="text-center">Update Information</h1>
           <hr />
 
-          <form id="update-form" class="p-4">
+          <form id="update-form" data-userId=${user.userId} class="p-4">
               <div class="row">
               <div class="mb-3 col-md-6 col-12">
                   <label for="name-input" class="form-label">Name</label>
@@ -246,6 +245,14 @@ const renderUpdateModal = (user) => {
                     user.name
                   } id="name-input" />
                   <div class="form-text error" id="name-error"></div>
+              </div>
+              <div class="row">
+              <div class="mb-3 col-md-6 col-12">
+                <label for="age-input" class="form-label">Age</label>
+                <input type="number" class="form-control" value=${
+                  user.age
+                }id="age-input" />
+                <div class="form-text error" id="age-error"></div>
               </div>
               
               <div class="mb-3 col-md-6 col-12">
@@ -378,12 +385,13 @@ const renderUpdateModal = (user) => {
   updateModalContainer.append(modal);
   $(".modal").modal("show");
 
-  const updateUser = (event) => {
+  const updateUser = async (event) => {
     event.preventDefault();
 
     const updatedUser = {
       name: $("#name-input").val(),
       location: $("#location-input").val(),
+      age: $("#age-input").val(),
       build: $("#build-input").find(":selected").val(),
       height: $("#height-input").val(),
       gender: $("#gender-input").find(":selected").val(),
@@ -392,7 +400,9 @@ const renderUpdateModal = (user) => {
       aboutMe: $("#aboutMe-input").val(),
     };
 
-    const response = await fetch("/api/profile", {
+    const id = $("#update-form").attr("data-userId");
+    console.log(id);
+    const response = await fetch(`/api/profile/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -400,7 +410,8 @@ const renderUpdateModal = (user) => {
       body: JSON.stringify(updatedUser),
     });
 
-    const { data } = await response.json();
+    const { success, userData } = await response.json();
+    console.log({ success, userData });
   };
 
   $("#update-form").on("submit", updateUser);

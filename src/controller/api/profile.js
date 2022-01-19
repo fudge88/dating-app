@@ -1,4 +1,6 @@
-const updateProfileById = (req, res) => {
+const { User } = require("../../models");
+
+const updateProfileById = async (req, res) => {
   try {
     const userData = await User.update(req.body, {
       where: {
@@ -17,4 +19,4 @@ const updateProfileById = (req, res) => {
   }
 };
 
-module.export = { updateProfileById };
+module.exports = { updateProfileById };

@@ -4,6 +4,6 @@ const { updateProfileById } = require("../../controller/api/profile");
 
 const router = Router();
 
-router.update("/:id", updateProfileById);
+router.put("/:id", updateProfileById);
 
 module.exports = router;
