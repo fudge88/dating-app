@@ -502,13 +502,12 @@ const startSearch = async () => {
     $("#search-container").empty();
 
     const renderCard = `<div class="jumbotron-styling m-3" id="start-search">
-          <h1 class="display-4 pink-text">Hello</h1>
-          <p class="lead">
-            If you want to see all the potential matches:
+          <h1 class="display-4 pink-text">Hello again!</h1>
+          <p class="lead"> You've reached the end of the line!
           </p>
           <hr class="my-4" />
-          <h5>Get clicking and find your perfect match</h5>
-          <button class="btn btn-styling mt-2" id="search-start-btn">see again
+          <h5> Ready to give love a second chance? You've ran out of matches!</h5>
+          <button class="btn btn-styling mt-2" id="search-start-btn">Here we go again!
           </button>`;
 
     $("#search-container").append(renderCard);
