@@ -21,7 +21,7 @@ Crush is a dating app, where people can swipe left or right reflecting their int
 
 This means there's no faff and pretence, rather everyone knows where they stand before engaging in a conversation.
 
-A responsive dynamic app which will run in the browser. Crush is an easy to use application, which hold a SQL database to hold, and manage matches. The website requires direct input from the user, where the user signs up and is easily able to navigate through the site. If any 2 users swipe right on one another, this creates a match, and allows the couple to decide on a date.
+A responsive dynamic app which will run in the browser. Crush is an easy to use application, which holds a SQL database, and manages matches. The website requires direct input from the user, where the user signs up and is easily able to navigate through the site. If any 2 users swipe right on one-another, this creates a match, and allows the couple to decide on a date.
 
 ## User Story
 
@@ -40,15 +40,15 @@ WHEN exploring i SHOULD be given a summary information of other users (potential
 
 I WOULD like my first glance at the user cards to give me:
 
-- an image
+- image
 - name
 - age
 - location
-- a short summary
+- and a short summary
 
-The cards SHOULD give me the ability to select yes or no at a glance, as an option of matching.
+The cards SHOULD give me the ability to select yes or no at a glance, as an precursor of matching.
 
-If another USER has 'liked me', upon 'liking' them back i SHOULD receive a notification that we matched. I WOULD also like teh option to connect or to continue browsing.
+If another USER has 'liked me', upon 'liking' them back i SHOULD receive a notification that we matched. I WOULD also like the option to connect or to continue browsing.
 
 ```
 
@@ -72,6 +72,7 @@ If another USER has 'liked me', upon 'liking' them back i SHOULD receive a notif
 - Express JS
 - Handlebars JS
 - MVC Paradigm
+- bcrypt
 
 ## Installation:
 
@@ -115,12 +116,11 @@ npm run start
 
 #### Restful API:
 
-We began by defining the EndPoints of the RESTful API to be created first, EndPoints are the routes from the API that we are created.
-Commonly used HTTP verbs are GET, POST, PUT, and DELETE.
+To Create an restful API we began by defining the EndPoints which needed to be created first. EndPoints can be found in the routes for the API that we created. We used HTTP verbs such as GET, POST, and PUT.
 
 GET is used to get data from the server or better known as READ, POST is used to CREATE new data, PUT is used to UPDATE data, and DELETE is used to delete data.
 
-Or better known as CRUD (Create-Read-Update-Delete).
+Or better known as CRUD (Create-Read-Update-Delete) functionalit.
 
 #### Routing Table:
 
