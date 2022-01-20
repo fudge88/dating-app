@@ -1,10 +1,8 @@
-![Crush Logo Image](./public/assets/img/crush.png)
+![Crush Logo](./public/assets/img/crush.png)
 
-<h1>Crush</h1>
+You can view the deployed application [here](https://fudge88.github.io/foodtopia/).
 
-You can view the GitHub pages deployed application [here](https://fudge88.github.io/foodtopia/).
-
-<h2>Table of Contents</h2>
+## Table of Contents
 
 - [Summary](#summary)
 - [User Story](#user-story)
@@ -109,13 +107,13 @@ To run the start script, use the following code in the terminal.
 npm run start
 ```
 
-#### APIs
+## APIs
 
-##### Third Party API:
+#### Third Party API:
 
 - TBD?????????????
 
-##### Restful API:
+#### Restful API:
 
 We began by defining the EndPoints of the RESTful API to be created first, EndPoints are the routes from the API that we are created.
 Commonly used HTTP verbs are GET, POST, PUT, and DELETE.
@@ -147,7 +145,7 @@ Here is the EndPoint design of the RESTful API that was used to create this proj
 
 ## Screenshots
 
-### Wireframes
+#### Wireframes
 
 #### INDEX PAGE Large and small screen Wireframe
 
@@ -169,7 +167,7 @@ Here is the EndPoint design of the RESTful API that was used to create this proj
 ![Wireframe for index](./assets/images/wireframes/recipe-wf.png)
 ![Wireframe for index](./assets/images/wireframes/recipe-wf-sm.png)
 
-### Final Website
+## Final Website
 
 #### INDEX PAGE screenshot
 
