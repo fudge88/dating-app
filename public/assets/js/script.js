@@ -220,9 +220,44 @@ const handleYes = async (event) => {
   startSearch();
 };
 
-const renderUpdateModal = (user) => {
-  console.log(user);
-  const modal = `<div class="container">
+const updateUser = async (event) => {
+  event.preventDefault();
+
+  const updatedUser = {
+    name: $("#name-input").val(),
+    location: $("#location-input").val(),
+    age: $("#age-input").val(),
+    build: $("#build-input").find(":selected").val(),
+    height: $("#height-input").val(),
+    gender: $("#gender-input").find(":selected").val(),
+    sexuality: $("#sexuality-input").find(":selected").val(),
+    seriousness: $("#seriousness-input").find(":selected").val(),
+    aboutMe: $("#aboutMe-input").val(),
+  };
+
+  const id = $("#update-form").attr("data-userId");
+  const response = await fetch(`/api/profile/${id}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(updatedUser),
+  });
+
+  const { success } = await response.json();
+
+  if (success) {
+    window.location.reload();
+  }
+};
+
+const renderUpdateModal = async (event) => {
+  const userId = $(event.target).attr("id");
+  const response = await fetch(`/api/profile/${userId}`);
+
+  const { user } = await response.json();
+  if (user) {
+    const modal = `<div class="container">
   <div class="modal" >
   <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
@@ -231,7 +266,7 @@ const renderUpdateModal = (user) => {
           <h1 class="text-center">Update Information</h1>
           <hr />
 
-          <form id="update-form" data-userId=${user.userId} class="p-4">
+          <form id="update-form" data-userId=${user.id} class="p-4">
               <div class="row">
               <div class="mb-3 col-md-6 col-12">
                   <label for="name-input" class="form-label">Name</label>
@@ -248,7 +283,7 @@ const renderUpdateModal = (user) => {
                 } id="age-input" />
                 <div class="form-text error" id="age-error"></div>
               </div>
-              
+
               <div class="mb-3 col-md-6 col-12">
                   <label for="location-input" class="form-label">Location</label>
                   <input type="text" value=${
@@ -257,7 +292,7 @@ const renderUpdateModal = (user) => {
                   <div class="form-text error" id="location-error"></div>
               </div>
               </div>
-              
+
               <div class="row">
               <div class="mb-3 col-md-6 col-12">
                   <label class="form-label" for="build-input"
@@ -295,9 +330,9 @@ const renderUpdateModal = (user) => {
                   />
                   <div class="form-text error" id="height-error"></div>
               </div>
-              
+
               </div>
-              
+
               <div class="row">
               <div class="col-md-4 col-12">
                   <label class="visually-hidden" for="autoSizingSelect"
@@ -356,7 +391,7 @@ const renderUpdateModal = (user) => {
                   </select>
                   <div class="form-text error" id="seriousness-error"></div>
               </div>
-          
+
               <div class="row">
               <div class="mb-3">
                   <label for="aboutMe-input" class="form-label mt-4">About Me </label>
@@ -365,7 +400,7 @@ const renderUpdateModal = (user) => {
                   id="aboutMe-input">${user.aboutMe}</textarea>
                   <div class="form-text error" id="aboutMe-error"></div>
               </div>
-              </div>  
+              </div>
               <button type="submit" class="btn btn-styling" data-bs-dismiss="modal" id="update-btn">
               Update Account
               </button>
@@ -375,37 +410,9 @@ const renderUpdateModal = (user) => {
       </div>
       </div>
    </div>`;
-  updateModalContainer.append(modal);
-  $(".modal").modal("show");
-
-  const updateUser = async (event) => {
-    event.preventDefault();
-
-    const updatedUser = {
-      name: $("#name-input").val(),
-      location: $("#location-input").val(),
-      age: $("#age-input").val(),
-      build: $("#build-input").find(":selected").val(),
-      height: $("#height-input").val(),
-      gender: $("#gender-input").find(":selected").val(),
-      sexuality: $("#sexuality-input").find(":selected").val(),
-      seriousness: $("#seriousness-input").find(":selected").val(),
-      aboutMe: $("#aboutMe-input").val(),
-    };
-
-    const id = $("#update-form").attr("data-userId");
-    console.log(id);
-    const response = await fetch(`/api/profile/${id}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(updatedUser),
-    });
-
-    const { success, userData } = await response.json();
-    console.log({ success, userData });
-  };
+    updateModalContainer.append(modal);
+    $(".modal").modal("show");
+  }
 
   $("#update-form").on("submit", updateUser);
 };
