@@ -5,6 +5,7 @@ const searchStartBtn = $("#search-start-btn");
 const restartContainer = $("#restart-container");
 const updateModalContainer = $(".updateModal-container");
 const logout = $("#logout");
+const deleteUserMatchBtn = $("#delete-user-match");
 
 const getErrorsSignUp = ({
   name,
@@ -194,12 +195,6 @@ const handleSignup = async (event) => {
       window.location.replace("/login");
     }
   }
-};
-
-const handleProfile = (event) => {
-  const target = $(event.target);
-  const id = target.data("id");
-  window.location.assign(`/profile/${id}`);
 };
 
 const handleYes = async (event) => {
@@ -490,7 +485,6 @@ const startSearch = async () => {
     $("#search-container").append(profileCard);
 
     $("#no").on("click", handleNo);
-    $("#view-more").on("click", handleProfile);
     $("#yes").on("click", handleYes);
 
     userIdsToSkip.push(data.id);
@@ -518,6 +512,20 @@ const startSearch = async () => {
   }
 };
 
+const deleteMatch = async (event) => {
+  const id = $(event.target).attr("data-matchId");
+  const response = await fetch(`/api/match/${id}`, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  const { success } = await response.json();
+  if (success) {
+    window.location.reload();
+  }
+};
+
 const handleLogout = async () => {
   const response = await fetch("/auth/logout", {
     method: "POST",
@@ -533,6 +541,6 @@ const handleLogout = async () => {
 
 loginForm.on("submit", handleLogin);
 signupForm.on("submit", handleSignup);
-profileCard.on("click", handleProfile);
 searchStartBtn.on("click", startSearch);
 logout.on("click", handleLogout);
+deleteUserMatchBtn.on("click", deleteMatch);
