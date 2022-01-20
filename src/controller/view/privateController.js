@@ -46,9 +46,9 @@ const renderProfile = async (req, res) => {
     user,
     matches: matches.map((match) => {
       if (match.fromUser.id === loggedInUserId) {
-        return match.toUser;
+        return { matchUser: match.toUser, matchId: match.id };
       } else {
-        return match.fromUser;
+        return { matchUser: match.fromUser, matchId: match.id };
       }
     }),
   });
