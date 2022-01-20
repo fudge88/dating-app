@@ -6,6 +6,7 @@ const restartContainer = $("#restart-container");
 const updateModalContainer = $(".updateModal-container");
 const logout = $("#logout");
 const deleteUserMatchBtn = $("#delete-user-match");
+const updateBtn = $('button[name="updateBtn"]');
 
 const getErrorsSignUp = ({
   name,
@@ -544,3 +545,4 @@ signupForm.on("submit", handleSignup);
 searchStartBtn.on("click", startSearch);
 logout.on("click", handleLogout);
 deleteUserMatchBtn.on("click", deleteMatch);
+updateBtn.on("click", renderUpdateModal);
