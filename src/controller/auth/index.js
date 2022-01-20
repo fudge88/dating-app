@@ -65,6 +65,7 @@ const signup = async (req, res) => {
         "name",
         "email",
         "password",
+        "confirmPassword",
         "age",
         "location",
         "gender",

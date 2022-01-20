@@ -2,6 +2,8 @@ const loginForm = $("#login-form");
 const signupForm = $("#signup-form");
 const profileCard = $("#profile-card");
 const searchStartBtn = $("#search-start-btn");
+const restartContainer = $("#restart-container");
+const modalContainer = $("#modal-container");
 const logout = $("#logout");
 
 const getErrorsSignUp = ({
@@ -216,13 +218,33 @@ const handleYes = async (event) => {
   const { data } = await response.json();
 
   if (data.status === "MATCHED") {
-    alert("Matched");
+    renderModal();
+    // alert("Matched");
+    // function to render the modal which renders on window load
   } else {
     console.log("Match initiated");
   }
 
   $("#profile-card").remove();
   startSearch();
+};
+
+const renderModal = function () {
+  const loadModal = `<div class="modal fade is-active" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-body text-center">
+        It's a MATCH 💕
+        <div><img src="https://c.tenor.com/WogtNEb_jCwAAAAC/match-perfect.gif" alt="this slowpoke moves"  width="250" /></div>
+      </div>
+      <div class="d-flex justify-content-center">
+        <button type="button" class="btn btn-styling mb-2" data-bs-dismiss="modal">Continue browsing..</button>
+      </div>
+    </div>
+  </div>
+</div>`;
+  modalContainer.append(loadModal);
+  $(".modal").modal("show");
 };
 
 const handleNo = (event) => {
@@ -250,10 +272,9 @@ const startSearch = async () => {
 
   if (data) {
     // construct profile card
-    const parent = $("<div>");
+    // const parent = $("<div>");
 
-    const profileCard = `<body class="background">
-    <div class="profile-card card mx-auto m-5"style="width: 18rem;" id="profile-card">
+    const profileCard = `<div class="profile-card card mx-auto m-5"style="width: 18rem;" id="profile-card">
       <div class="card-summary">
         <h5 class="profile-name">${data.name}, <b>${data.age}</b></h5>
         <h6 class="profile-location"><small>${data.location}</small></h6>
@@ -273,18 +294,21 @@ const startSearch = async () => {
           <div class="col-6">${data.seriousness}</div>
         </div>
         <hr>
-          <div class="profile-bio mt-2">${data.about_me}</div>
+          <div class="profile-bio mt-2">${data.aboutMe}</div>
         <hr>
         <div class="profile-links">
           <button type="button" id="no" data-id=${data.id} class="btn btn-style text-danger" ><i class="fas fa-times"></i></button>
-          <button type="button" id="yes" data-id=${data.id} class="btn btn-style text-success"><i class="fas fa-check"></i></button>
+          <button type="button" id="yes" data-id=${data.id} class="btn btn-style text-success"><i data-id=${data.id} class="fas fa-check"></i></button>
         </div>
-      </div>`;
+      </div>
+    </div>`;
 
     // append card to page
-    $("#start-search").remove();
-    parent.append(profileCard);
-    $("#search-container").append(parent);
+    // $("#start-search").remove();
+    $("#search-container").empty();
+
+    $("#search-container").append(profileCard);
+    // $("#search-container").append(parent);
 
     // add event listeners on card buttons
     $("#no").on("click", handleNo);
@@ -294,7 +318,29 @@ const startSearch = async () => {
     userIdsToSkip.push(data.id);
     localStorage.setItem("userIdsToSkip", JSON.stringify(userIdsToSkip));
   } else {
-    console.log("TODO render no users");
+    //console.log("TODO render no users");
+
+    // const parent = $("<div>");
+    $("#search-container").empty();
+
+    const renderCard = `<div class="jumbotron-styling m-3" id="start-search">
+          <h1 class="display-4 pink-text">Hello</h1>
+          <p class="lead">
+            If you want to see all the potential matches:
+          </p>
+          <hr class="my-4" />
+          <h5>Get clicking and find your perfect match</h5>
+          <button class="btn btn-styling mt-2" id="search-start-btn">see again
+          </button>`;
+
+    $("#search-container").append(renderCard);
+
+    const clearLocalStorage = () => {
+      localStorage.clear();
+      startSearch();
+    };
+
+    $("#search-start-btn").on("click", clearLocalStorage);
   }
 };
 

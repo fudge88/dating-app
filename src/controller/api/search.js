@@ -25,7 +25,7 @@ const getRandomUser = async (req, res) => {
         build: randomUser.build,
         height: randomUser.height,
         seriousness: randomUser.seriousness,
-        about_me: randomUser.about_me,
+        aboutMe: randomUser.aboutMe,
       };
 
       return res.json({ success: true, data: userData });

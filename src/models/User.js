@@ -23,6 +23,7 @@ const schema = {
     type: DataTypes.STRING,
     allowNull: false,
   },
+
   age: {
     type: DataTypes.INTEGER,
     allowNull: false,
@@ -41,23 +42,23 @@ const schema = {
     type: DataTypes.ENUM({
       values: ["male", "female", "other"],
     }),
-    allowNull: true,
+    allowNull: false,
     defaultValue: "male",
   },
-  sexual_preference: {
+  sexuality: {
     type: DataTypes.ENUM({
-      values: ["straight", "bisexual", "gay"],
+      values: ["straight", "bisexual", "gay", "other"],
     }),
-    allowNull: true,
+    allowNull: false,
     defaultValue: "straight",
   },
-  about_me: {
+  aboutMe: {
     type: DataTypes.STRING,
-    allowNull: true,
+    allowNull: false,
   },
   height: {
     type: DataTypes.DECIMAL(3, 2),
-    allowNull: true,
+    allowNull: false,
     validate: {
       isDecimal: true,
     },
@@ -66,14 +67,14 @@ const schema = {
     type: DataTypes.ENUM({
       values: ["slim", "athletic", "medium", "curvy", "large"],
     }),
-    allowNull: true,
+    allowNull: false,
     defaultValue: "slim",
   },
   seriousness: {
     type: DataTypes.ENUM({
       values: ["low", "medium", "high"],
     }),
-    allowNull: true,
+    allowNull: false,
     defaultValue: "low",
   },
 };
