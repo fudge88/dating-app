@@ -6,10 +6,10 @@ You can view the GitHub pages deployed application [here](https://fudge88.github
 
 <h2>Table of Contents</h2>
 
-- [Description](#description)
+- [Summary](#summary)
 - [User Story](#user-story)
 - [Technologies Used](#technologies-used)
-- [EndPoints Documentation](#endpoint-documentation)
+- [Installation](#installation)
 - [Contributors](#contributors)
 - [Improvements](#improvements)
 - [Screenshots](#screenshots)
@@ -17,7 +17,7 @@ You can view the GitHub pages deployed application [here](https://fudge88.github
   - [Final Website](#final-website)
   - [References](#References)
 
-## Description
+## Summary
 
 Crush is a dating app, where people can swipe left or right reflecting their interest, and view profiles to find out peoples intentions from the get-go. Its'intentions' feature makes it compulsory for user to state why they're using the app, from 'FlingTing' and 'Lets see where it goes', to 'Marry Me'.
 
@@ -75,6 +75,40 @@ If another USER has 'liked me', upon 'liking' them back i SHOULD receive a notif
 - Handlebars JS
 - MVC Paradigm
 
+## Installation:
+
+If you are interest in making contribution to the code, you can install this repository by following the instructions below:
+
+You are able to clone this repository, by clicking [here](https://github.com/fudge88/dating-app) and then clicking on the `code` button. Select how you would like to clone the repository.
+
+If you have your SSH keys set up, you are able to copy the link from the drop down and paste the following into your terminal application:
+
+```
+git clone git@github.com:fudge88/dating-app.git
+```
+
+Then change your directory so you are now in your newly cloned project and then open the code in your chosen source-code editor.
+
+You need to install all dependencies that are listed in the `package.json` file:
+
+```
+npm install
+```
+
+Check to see that the following code is in the `package.json`, this will ensure npm to 'start' the application from your entry file
+
+```
+"start": node src/index.js
+```
+
+## How to run the application:
+
+To run the start script, use the following code in the terminal.
+
+```
+npm run start
+```
+
 #### APIs
 
 ##### Third Party API:
@@ -94,22 +128,22 @@ Or better known as CRUD (Create-Read-Update-Delete).
 
 Here is the EndPoint design of the RESTful API that was used to create this project:
 
-[Routing Table](./public/assets/img/routing.png)
+![Routing Table](./public/assets/img/routing.png)
 
 ## Contributors
 
-- Sumaia: [https://github.com/anabwarsame](https://github.com/anabwarsame)
-- Fahra: [https://github.com/fudge88](https://github.com/fudge88)
-- Leanne: [https://github.com/lenny-g](https://github.com/lenny-g)
-- Intisar: [https://github.com/lianavaleria15](https://github.com/lianavaleria15)
+- Sumaia: [Sumaias Github](https://github.com/SumaiaSorna)
+- Fahra: [Fahras Github](https://github.com/fudge88)
+- Leanne: [Leannes Github](https://github.com/lenny-g)
+- Intisar: [Intisars Github](https://github.com/intisarmohamed)
 
 ## Improvements
 
-- Modal to confirm deletion
-- Ability to create a menu planner
-- Offer a feedback option
-- Present more information on cards
-- Save videos to local storage
+- Giving the user the ability to delete their profile
+- Giving the user the ability to add more images
+- Installing an instant messaging service
+- Ability to video call and leave voice notes
+- Creating a premium service, which creates matches based interests
 
 ## Screenshots
 
@@ -161,16 +195,24 @@ Here is the EndPoint design of the RESTful API that was used to create this proj
 
 [Webm to Gif converter](https://cloudconvert.com/webm-to-gif)
 
-[Screencastify - screen recording](https://www.screencastify.com/)
-
-[Mozilla.org](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach)
+[Mozilla.org](https://developer.mozilla.org/en-US/docs/Web/JavaScript/)
 
 [StackOverflow](https://stackoverflow.com/questions/9329446/for-each-over-an-array-in-javascript)
 
-[Spoonacular](https://spoonacular.com/food-api)
-
-[YouTube](https://developers.google.com/youtube/v3/getting-started?hl=en)
-
 ## License
 
+![MIT](https://img.shields.io/static/v1?label=MIT&message=License&color=<COLOR>)
+
 This project is licensed under the terms of the MIT license.
+
+## Questions
+
+- If you have any questions about this project
+- would like further information
+- would like to report and issue
+
+please contact me through the links below:
+
+[GitHub](https://github.com/fudge88) Profile
+
+Email: akhlaq.fahra@gmail.com
