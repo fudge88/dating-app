@@ -12,7 +12,7 @@ const getRandomUser = async (req, res) => {
     const users = allUsers.map((user) => {
       return user.get({ plain: true });
     });
-    console.log(users);
+
     const randomUserIndex = Math.floor(Math.random() * users.length);
     const randomUser = users[randomUserIndex];
     if (randomUser) {

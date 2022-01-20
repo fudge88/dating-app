@@ -14,8 +14,6 @@ const verifyAndCreateMatch = async (req, res) => {
       },
     });
 
-    console.log(match);
-
     if (!match) {
       await Match.create({
         match_request_from: loggedInUser,

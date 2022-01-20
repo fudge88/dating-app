@@ -1,19 +1,28 @@
- <div class="profile-card card mx-auto m-5"style="width: 18rem;" id="profile-card">
-        <img class="card-img-top p-2" src="https://via.placeholder.com/300x300" alt="Card image cap" />
-        <div class="card-body">  
-          <h5 class="profile-name">{{randomUser.name}}, {{randomUser.age}}</h5>
-          <h6 class="profile-location"><b>{{randomUser.location}}</b></h3>
-              <div class="profile-height"> <b>Height:</b> {{randomUser.height}}m</div>
-              <div class="profile-build"><b>Build:</b> {{randomUser.build}}</div>
-              <div class="profile-serious"><b>Seriousness:</b>{{randomUser.seriousness}}
-              </div>
-          <div class="profile-bio">
-      <b>Bio:</b>  {{randomUser.about_me}}
-          </p>
-        </div>
-        <div class="profile-links">
-            <button type="button" id="no" class="btn btn-danger" >No</button>
-           <button type="button" id="view-more" data-id={{randomUser.id}} class="btn btn-info"> View Profile </button>
-                <button type="button" id="yes" data-id={{randomUser.id}} class="btn btn-success">Yes</button>
-            </div>
-       </div>
+<div
+  class="profile-card card mx-auto m-5"
+  style="width: 18rem;"
+  id="profile-card"
+>
+  <div class="card-summary">
+    <h5 class="profile-name">{{name}}, <b>{{age}}</b></h5>
+    <h6 class="profile-location"><small>{{location}}</small></h6>
+  </div>
+  <img class="card-img-top" src="{{img}}" alt="Card image cap" />
+  <div class="card-body">
+    <div class="row">
+      <div class="col-6"><b>Height:</b></div>
+      <div class="col-6">{{height}}</div>
+      <div class="w-100"></div>
+      <div class="col-6"><b>Build:</b></div>
+      <div class="col-6">{{build}}</div>
+      <div class="w-100"></div>
+      <div class="col-6"><b>Seriousness:</b></div>
+      <div class="col-6">{{seriousness}}</div>
+    </div>
+    <hr />
+    <div class="profile-bio mt-2">{{about_me}}</div>
+    <button type="submit" class="btn btn-styling" id="delete-match-btn">
+      Delete match
+    </button>
+  </div>
+</div>

@@ -5,10 +5,12 @@ const User = require("./User");
 
 Match.belongsTo(User, {
   foreignKey: "match_request_from",
+  as: "fromUser",
 });
 
 Match.belongsTo(User, {
   foreignKey: "match_request_to",
+  as: "toUser",
 });
 
 User.hasMany(Match, {

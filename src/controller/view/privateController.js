@@ -1,8 +1,5 @@
+const { Op } = require("sequelize");
 const { User, Match } = require("../../models");
-
-const renderMatches = (req, res) => {
-  res.render("matches");
-};
 
 const renderProfile = async (req, res) => {
   const { id: loggedInUserId } = req.session.user;
@@ -17,41 +14,49 @@ const renderProfile = async (req, res) => {
   const matchesFromDb = await Match.findAll({
     where: {
       matched: true,
-      match_request_from: loggedInUserId,
+      [Op.or]: [
+        { match_request_to: loggedInUserId },
+        { match_request_from: loggedInUserId },
+      ],
     },
     include: [
+      {
+        model: User,
+        foreignKey: "match_request_from",
+        attributes: {
+          exclude: ["password"],
+        },
+        as: "fromUser",
+      },
       {
         model: User,
         foreignKey: "match_request_to",
         attributes: {
           exclude: ["password"],
         },
+        as: "toUser",
       },
     ],
   });
   const matches = matchesFromDb.map((match) => {
     return match.get({ plain: true });
   });
-  console.log({
+
+  return res.render("profile", {
     user,
     matches: matches.map((match) => {
-      return match.user;
-    }),
-  });
-  res.render("profile", {
-    user,
-    matches: matches.map((match) => {
-      return match.user;
+      if (match.fromUser.id === loggedInUserId) {
+        return match.toUser;
+      } else {
+        return match.fromUser;
+      }
     }),
   });
 };
-
-// const renderMessage = (req, res) => {
-//   res.render("message");
-// };
 
 const renderSearch = (req, res) => {
-  res.render("search");
+  const { name } = req.session.user;
+  res.render("search", { name });
 };
 
-module.exports = { renderProfile, renderMatches, renderSearch };
+module.exports = { renderProfile, renderSearch };
