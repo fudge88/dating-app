@@ -4,7 +4,6 @@ const profileCard = $("#profile-card");
 const searchStartBtn = $("#search-start-btn");
 const restartContainer = $("#restart-container");
 const updateModalContainer = $(".updateModal-container");
-const pickUpContainer = $("#pickup-line");
 const logout = $("#logout");
 
 const getErrorsSignUp = ({
@@ -533,26 +532,8 @@ const handleLogout = async () => {
   }
 };
 
-const getPickupLine = () => {
-  const pickUpURL = "https://getpickuplines.herokuapp.com/lines/random";
-  fetch(pickUpURL, { mode: "no-cors" })
-    .then((res) => res.json())
-    .then((data) => {
-      console.log("data", data);
-    });
-  // .then((result) => {
-  //   console.log(result);
-  // });
-  // console.log();
-  // return pickUp;
-  pickUpContainer.append();
-  //   console.log(pickUpResponse);
-};
-getPickupLine();
-
 loginForm.on("submit", handleLogin);
 signupForm.on("submit", handleSignup);
 profileCard.on("click", handleProfile);
 searchStartBtn.on("click", startSearch);
-// updateInfoBtn.on("click", handleUpdate);
 logout.on("click", handleLogout);
