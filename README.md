@@ -30,49 +30,27 @@ A responsive dynamic app which will run in the browser. Crush is an easy to use 
 ```
 AS a user I expect to FIND a main page that gives me an overview of what the app is about.
 
-I would ALSO expect to find 'signing up' and 'logging in' buttons on the same page,
+I would ALSO expect to find some form of navigation on using the app, such as 'signing up' and 'logging in' buttons,
 
-WHEN i click on either buttons, i EXPECT to be taken to a page where i can either login or enter my details and sign up.
+WHEN i click on either buttons, i EXPECT to be taken to a page where i can either login and be relocated to a private page or enter my details and sign up for instant use.
 
-i would THEN like to tbe taken to my Profile page.
+Ideally i would THEN like to be taken to my Profile page. WHERE i can see my matches, and HAVE the ability to update Bio at a later stage.
 
-As a user i WOULD like to have a navbar that would give me easy access to the relevant pages, such as my profile, and the browsing option.
+As a user i WOULD like to have a navbar that would give me easy access to the relevant pages, such as my profile, and the exploring options.
 
-as i browse i should be given the relevant information of other users (potential dates), with the ability to select yes or no as an option of matching.
+WHEN exploring i SHOULD be given a summary information of other users (potential matches), AND have the ability to view their profile WHEN i click on the card.
 
+I WOULD like my first glance at the user cards to give me:
 
+- an image
+- name
+- age
+- location
+- a short summary
 
-I WOULD like my first glance at the recipes to give me:
+The cards SHOULD give me the ability to select yes or no at a glance, as an option of matching.
 
-- a image of the dish
-- the recipe title
-- the time and the calories for
-
-i WOULD also like the option to QUICK save the recipes without having to relocate to a different page, so i can ADD MULTIPLE recipes in one go.
-
-When I CLICK on the 'LETS COOK' on card recipe
-
-I EXPECT to be relocated to that specific recipe page
-
-I WOULD like to see:
-
-- the recipe name,
-- the image of the recipe
-- a box with the instructions for the recipe
-- a box with the methods of how to cook the recipe
-- a box with the wine pairing for the recipe
-- to ability to see the time, portions, costs and popularity
-- one option button (to add to Favorites)
-- one option button (to view nutritional value)
-- YouTube video links to see the recipe
-- calculator to multiply the ingredients depending on servings
-
-When I CLICK on the 'HEART' the recipe SHOULD be saved to 'my favourites'.
-
-
-When I CLICK on My Favourites link
-
-I EXPECT to be relocated to a page presenting all my SAVED recipe cards
+If another USER has 'liked me', upon 'liking' them back i SHOULD receive a notification that we matched. I WOULD also like teh option to connect or to continue browsing.
 
 ```
 
@@ -84,33 +62,46 @@ I EXPECT to be relocated to a page presenting all my SAVED recipe cards
 - CSS
 - JavaScript
 - JQuery
+- MySQL
+- Sequelize
 
 #### Frameworks used
 
-- Bulma CSS Framework
+- Bootstrap
 - Font Awesome
-- Google Fonts CDN
+- Google Fonts
+- Node JS
+- Express JS
+- Handlebars JS
+- MVC Paradigm
 
 #### APIs
 
-- Spoonacular API
-- Youtube API
+##### Third Party API:
 
-## EndPoints Documentation
+- TBD?????????????
 
-[Spoonacular](https://spoonacular.com/food-api) and [YouTube](https://developers.google.com/youtube/v3/getting-started?hl=en) APIs
+##### Restful API:
 
-- Spoonacular is one of the first food management system that combines dining out, eating store-bought food, and cooking at home to help you find and organize the restaurants, products, and recipes that fit your diet and can help you reach your nutrition goals.
+We began by defining the EndPoints of the RESTful API to be created first, EndPoints are the routes from the API that we are created.
+Commonly used HTTP verbs are GET, POST, PUT, and DELETE.
 
-- YouTube Data API, you can add a variety of YouTube features to your application. Use the API to upload videos, manage playlists and subscriptions, update channel settings, and more.
+GET is used to get data from the server or better known as READ, POST is used to CREATE new data, PUT is used to UPDATE data, and DELETE is used to delete data.
+
+Or better known as CRUD (Create-Read-Update-Delete).
+
+#### Routing Table:
+
+Here is the EndPoint design of the RESTful API that was used to create this project:
+
+[Routing Table](./public/assets/img/routing.png)
 
 ## Contributors
 
-- Anab: [https://github.com/anabwarsame](https://github.com/anabwarsame)
+- Sumaia: [https://github.com/anabwarsame](https://github.com/anabwarsame)
 - Fahra: [https://github.com/fudge88](https://github.com/fudge88)
 - Leanne: [https://github.com/lenny-g](https://github.com/lenny-g)
-- Liana: [https://github.com/lianavaleria15](https://github.com/lianavaleria15)
-- Luiz: [https://github.com/luizfroes](https://github.com/luizfroes)
+- Intisar: [https://github.com/lianavaleria15](https://github.com/lianavaleria15)
 
 ## Improvements
 
