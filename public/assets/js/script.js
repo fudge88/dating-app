@@ -505,7 +505,7 @@ const startSearch = async () => {
           </p>
           <hr class="my-4" />
           <h5> Ready to give love a second chance? You've ran out of matches!</h5>
-          <button class="btn btn-styling mt-2" id="search-start-btn">Here we go again!
+          <button class="btn btn-styling mt-2" id="search-start-btn">Here we go again! 👀
           </button>`;
 
     $("#search-container").append(renderCard);
