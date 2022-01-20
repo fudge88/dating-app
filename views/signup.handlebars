@@ -48,12 +48,12 @@
         <div class="mb-3 col-md-6 col-12">
           <label class="form-label" for="build-input">Build</label>
           <select class="form-select" id="build-input">
-            <option selected> Build </option>
-            <option value="slim">Slim</option>
-            <option value="athletic">Athletic</option>
-            <option value="medium">Medium</option>
-            <option value="curvy">Curvy</option>
-            <option value="large">Large</option>
+            <option disabled> Build </option>
+            <option value="Slim">Slim</option>
+            <option value="Athletic">Athletic</option>
+            <option value="Medium">Medium</option>
+            <option value="Curvy">Curvy</option>
+            <option value="Large">Large</option>
           </select>
           <div class="form-text error" id="build-error"></div>
         </div>
@@ -68,35 +68,41 @@
         <div class="col-md-4 col-12">
           <label class="visually-hidden" for="autoSizingSelect">Preference</label>
           <select class="form-select" id="gender-input">
-            <option selected>Gender</option>
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-            <option value="other">Other</option>
+            <option disabled>Gender</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
           </select>
           <div class="form-text error" id="gender-error"></div>
         </div>
         <div class="col-md-4 col-12">
           <label class="visually-hidden" for="autoSizingSelect">Preference</label>
           <select class="form-select" id="sexuality-input">
-            <option selected>Sexuality</option>
-            <option value="straight">Straight</option>
-            <option value="bisexual">Bisexual</option>
-            <option value="gay">Gay</option>
-            <option value="other">Other</option>
+            <option disabled>Sexuality</option>
+            <option value="Straight">Straight</option>
+            <option value="Bisexual">Bisexual</option>
+            <option value="Gay">Gay</option>
+            <option value="Other">Other</option>
           </select>
           <div class="form-text error" id="sexuality-error"></div>
         </div>
         <div class="col-md-4 col-12">
           <label class="visually-hidden" for="autoSizingSelect">Preference</label>
           <select class="form-select" id="seriousness-input">
-            <option selected>Seriousness</option>
-            <option value="low">Fling Ting</option>
-            <option value="medium">Lets see where it goes</option>
-            <option value="high">Marry Me</option>
+            <option disabled>Seriousness</option>
+            <option value="Fling Ting">Fling Ting</option>
+            <option value="Dating">Dating</option>
+            <option value="Marry Me">Marry Me</option>
           </select>
           <div class="form-text error" id="seriousness-error"></div>
         </div>
-
+        <div class="row">
+          <div class="mb-3">
+            <label for="img-input" class="form-label mt-4">Insert Image link</label>
+            <input type="text" class="form-control" id="img-input" />
+            <div class="form-text error" id="img-error"></div>
+          </div>
+        </div>
         <div class="row">
           <div class="mb-3">
             <label for="aboutMe-input" class="form-label mt-4">About Me </label>

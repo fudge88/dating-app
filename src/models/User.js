@@ -40,17 +40,17 @@ const schema = {
   },
   gender: {
     type: DataTypes.ENUM({
-      values: ["male", "female", "other"],
+      values: ["Male", "Female", "Other"],
     }),
     allowNull: false,
-    defaultValue: "male",
+    defaultValue: "Male",
   },
   sexuality: {
     type: DataTypes.ENUM({
-      values: ["straight", "bisexual", "gay", "other"],
+      values: ["Straight", "Bisexual", "Gay", "Other"],
     }),
     allowNull: false,
-    defaultValue: "straight",
+    defaultValue: "Straight",
   },
   aboutMe: {
     type: DataTypes.STRING,
@@ -65,17 +65,17 @@ const schema = {
   },
   build: {
     type: DataTypes.ENUM({
-      values: ["slim", "athletic", "medium", "curvy", "large"],
+      values: ["Slim", "Athletic", "Medium", "Curvy", "Large"],
     }),
     allowNull: false,
-    defaultValue: "slim",
+    defaultValue: "Slim",
   },
   seriousness: {
     type: DataTypes.ENUM({
-      values: ["low", "medium", "high"],
+      values: ["Fling Ting", "Dating", "Marry Me"],
     }),
     allowNull: false,
-    defaultValue: "low",
+    defaultValue: "Fling Ting",
   },
 };
 

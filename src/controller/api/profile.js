@@ -13,6 +13,7 @@ const updateProfileById = async (req, res) => {
       userData,
     });
   } catch (error) {
+    console.log(`[ERROR]: Failed to update user | ${error.message}`);
     return res
       .status(500)
       .json({ success: false, error: "Failed to update user" });

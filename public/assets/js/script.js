@@ -151,6 +151,7 @@ const handleSignup = async (event) => {
   const gender = $("#gender-input").find(":selected").text();
   const sexuality = $("#sexuality-input").find(":selected").text();
   const aboutMe = $("#aboutMe-input").val();
+  const img = $("#img-input").val();
 
   const errorMessages = getErrorsSignUp({
     name,
@@ -165,6 +166,7 @@ const handleSignup = async (event) => {
     gender,
     sexuality,
     aboutMe,
+    img,
   });
 
   renderErrorMessages(errorMessages);
@@ -187,6 +189,7 @@ const handleSignup = async (event) => {
         gender,
         sexuality,
         aboutMe,
+        img,
       }),
     });
 
@@ -231,7 +234,7 @@ const updateUser = async (event) => {
     height: $("#height-input").val(),
     gender: $("#gender-input").find(":selected").val(),
     sexuality: $("#sexuality-input").find(":selected").val(),
-    seriousness: $("#seriousness-input").find(":selected").val(),
+    seriousness: $("#seriousness-input").find(":selected").text(),
     aboutMe: $("#aboutMe-input").val(),
   };
 
@@ -258,158 +261,147 @@ const renderUpdateModal = async (event) => {
   const { user } = await response.json();
   if (user) {
     const modal = `<div class="container">
-  <div class="modal" >
-  <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-      <div class="modal-body text-center">
-
-          <h1 class="text-center">Update Information</h1>
-          <hr />
-
-          <form id="update-form" data-userId=${user.id} class="p-4">
+    <div class="modal">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-body text-center">
+            <h1 class="text-center">Update Information</h1>
+            <hr />
+            <form id="update-form" data-userId=${user.id} class="p-4">
               <div class="row">
-              <div class="mb-3 col-md-6 col-12">
+                <div class="mb-3 col-md-6 col-12">
                   <label for="name-input" class="form-label">Name</label>
-                  <input type="text" class="form-control" value=${
+                  <input type="text" class="form-control" value="${
                     user.name
-                  } id="name-input" />
+                  }" id="name-input" />
                   <div class="form-text error" id="name-error"></div>
+                </div>
+                <div class="mb-3 col-md-6 col-12">
+                  <label for="img-input" class="form-label">Image</label>
+                  <input type="text" class="form-control" value=${
+                    user.img
+                  } id="img-input" />
+                  <div class="form-text error" id="img-error"></div>
+                </div>
               </div>
               <div class="row">
-              <div class="mb-3 col-md-6 col-12">
-                <label for="age-input" class="form-label">Age</label>
-                <input type="number" class="form-control" value=${
-                  user.age
-                } id="age-input" />
-                <div class="form-text error" id="age-error"></div>
-              </div>
-
-              <div class="mb-3 col-md-6 col-12">
+                <div class="mb-3 col-md-6 col-12">
+                  <label for="age-input" class="form-label">Age</label>
+                  <input type="number" class="form-control" value="${
+                    user.age
+                  }" id="age-input" />
+                  <div class="form-text error" id="age-error"></div>
+                </div>
+                <div class="mb-3 col-md-6 col-12">
                   <label for="location-input" class="form-label">Location</label>
-                  <input type="text" value=${
+                  <input type="text" value="${
                     user.location
-                  } class="form-control" id="location-input" />
+                  }" class="form-control" id="location-input" />
                   <div class="form-text error" id="location-error"></div>
+                </div>
               </div>
-              </div>
-
               <div class="row">
-              <div class="mb-3 col-md-6 col-12">
-                  <label class="form-label" for="build-input"
-                  >Build</label
-                  >
+                <div class="mb-3 col-md-6 col-12">
+                  <label class="form-label" for="build-input">Build</label>
                   <select class="form-select" id="build-input">
-                  <option selected> Build </option>
-                  <option value="slim" ${
-                    user.build == "slim" ? "selected" : ""
-                  }>Slim</option>
-                  <option value="athletic" ${
-                    user.build == "athletic" ? "selected" : ""
-                  }>Athletic</option>
-                  <option value="medium" ${
-                    user.build == "medium" ? "selected" : ""
-                  }>Medium</option>
-                      <option value="curvy" ${
-                        user.build == "curvy" ? "selected" : ""
-                      }>Curvy</option>
-                  <option value="large" ${
-                    user.build == "large" ? "selected" : ""
-                  }>Large</option>
+                    <option disabled> Build </option>
+                    <option value="Slim" ${
+                      user.build == "Slim" ? "selected" : ""
+                    }>Slim</option>
+                    <option value="Athletic" ${
+                      user.build == "Athletic" ? "selected" : ""
+                    }>Athletic</option>
+                    <option value="Medium" ${
+                      user.build == "Medium" ? "selected" : ""
+                    }>Medium</option>
+                    <option value="Curvy" ${
+                      user.build == "Curvy" ? "selected" : ""
+                    }>Curvy</option>
+                    <option value="Large" ${
+                      user.build == "Large" ? "selected" : ""
+                    }>Large</option>
                   </select>
                   <div class="form-text error" id="build-error"></div>
-              </div>
-              <div class="mb-3 col-md-6 col-12">
+                </div>
+                <div class="mb-3 col-md-6 col-12">
                   <label for="height-input" class="form-label">Height (M)</label>
-                  <input
-                  type="number"
-                  step="0.01"
-                  value=${user.height}
-                  min="0"
-                  class="form-control"
-                  id="height-input"
-                  />
+                  <input type="number" step="0.01" value=${
+                    user.height
+                  } min="0" class="form-control" id="height-input" />
                   <div class="form-text error" id="height-error"></div>
+                </div>
               </div>
-
-              </div>
-
               <div class="row">
-              <div class="col-md-4 col-12">
-                  <label class="visually-hidden" for="autoSizingSelect"
-                  >Gender</label
-                  >
+                <div class="col-md-4 col-12">
+                  <label class="visually-hidden" for="autoSizingSelect">Gender</label>
                   <select class="form-select" id="gender-input">
-                  <option selected>Gender</option>
-                  <option value="male" ${
-                    user.gender == "male" ? "selected" : ""
-                  }>Male</option>
-                  <option value="female" ${
-                    user.gender == "female" ? "selected" : ""
-                  }>Female</option>
-                  <option value="other" ${
-                    user.gender == "other" ? "selected" : ""
-                  }>Other</option>
+                    <option disabled>Gender</option>
+                    <option value="Male" ${
+                      user.gender == "Male" ? "selected" : ""
+                    }>Male</option>
+                    <option value="Female" ${
+                      user.gender == "Female" ? "selected" : ""
+                    }>Female</option>
+                    <option value="Other" ${
+                      user.gender == "Other" ? "selected" : ""
+                    }>Other</option>
                   </select>
                   <div class="form-text error" id="gender-error"></div>
-              </div>
-              <div class="col-md-4 col-12">
-                  <label class="visually-hidden" for="autoSizingSelect"
-                  >Sexuality</label
-                  >
+                </div>
+                <div class="col-md-4 col-12">
+                  <label class="visually-hidden" for="autoSizingSelect">Sexuality</label>
                   <select class="form-select" id="sexuality-input">
-                  <option >Sexuality</option>
-                  <option value="straight" ${
-                    user.sexuality == "straight" ? "selected" : ""
-                  }>Straight</option>
-                  <option value="bisexual" ${
-                    user.sexuality == "bisexual" ? "selected" : ""
-                  }>Bisexual</option>
-                  <option value="gay" ${
-                    user.sexuality == "gay" ? "selected" : ""
-                  }>Gay</option>
-                  <option value="other" ${
-                    user.sexuality == "other" ? "selected" : ""
-                  }>Other</option>
+                    <option disabled>Sexuality</option>
+                    <option value="Straight" ${
+                      user.sexuality == "Straight" ? "selected" : ""
+                    }>Straight</option>
+                    <option value="Bisexual" ${
+                      user.sexuality == "Bisexual" ? "selected" : ""
+                    }>Bisexual</option>
+                    <option value="Gay" ${
+                      user.sexuality == "Gay" ? "selected" : ""
+                    }>Gay</option>
+                    <option value="Other" ${
+                      user.sexuality == "Other" ? "selected" : ""
+                    }>Other</option>
                   </select>
                   <div class="form-text error" id="sexuality-error"></div>
-              </div>
-              <div class="col-md-4 col-12">
-                  <label class="visually-hidden" for="autoSizingSelect"
-                  >Seriousness</label
-                  >
+                </div>
+                <div class="col-md-4 col-12">
+                  <label class="visually-hidden" for="autoSizingSelect">Seriousness</label>
                   <select class="form-select" id="seriousness-input">
-                  <option selected>Seriousness</option>
-                  <option value="low" ${
-                    user.seriousness == "low" ? "selected" : ""
-                  }>Fling Ting</option>
-                  <option value="medium" ${
-                    user.seriousness == "m" ? "selected" : ""
-                  }>Lets see where it goes</option>
-                  <option value="high" ${
-                    user.seriousness == "high" ? "selected" : ""
-                  }>Marry Me</option>
+                    <option disabled>Seriousness</option>
+                    <option value="Fling Ting" ${
+                      user.seriousness == "Fling Ting" ? "selected" : ""
+                    }>Fling Ting</option>
+                    <option value="Let's see where this goes" ${
+                      user.seriousness == "Dating" ? "selected" : ""
+                    }>Dating
+                    </option>
+                    <option value="Marry Me" ${
+                      user.seriousness == "Marry Me" ? "selected" : ""
+                    }>Marry Me</option>
                   </select>
                   <div class="form-text error" id="seriousness-error"></div>
+                </div>
               </div>
-
               <div class="row">
-              <div class="mb-3">
+                <div class="mb-3">
                   <label for="aboutMe-input" class="form-label mt-4">About Me </label>
-                  <textarea cols="30" rows="10"  type="text"
-                  class="form-control"
-                  id="aboutMe-input">${user.aboutMe}</textarea>
+                  <textarea cols="30" rows="10" type="text" class="form-control"
+                    id="aboutMe-input">${user.aboutMe}</textarea>
                   <div class="form-text error" id="aboutMe-error"></div>
-              </div>
+                </div>
               </div>
               <button type="submit" class="btn btn-styling" data-bs-dismiss="modal" id="update-btn">
-              Update Account
+                Update Account
               </button>
-          </form>
+            </form>
           </div>
+        </div>
       </div>
-      </div>
-      </div>
-   </div>`;
+    </div>
+  </div>`;
     updateModalContainer.append(modal);
     $(".modal").modal("show");
   }
@@ -535,6 +527,7 @@ const deleteMatch = async (event) => {
 };
 
 const handleLogout = async () => {
+  localStorage.removeItem("userIdsToSkip");
   const response = await fetch("/auth/logout", {
     method: "POST",
     headers: {
