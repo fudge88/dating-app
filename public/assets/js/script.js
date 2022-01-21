@@ -435,7 +435,15 @@ const handleNo = (event) => {
   startSearch();
 };
 
+const getRandomQuote = async () => {
+  const response = await fetch("https://api.quotable.io/random/?tags=love");
+  const quote = await response.json();
+  const { content } = quote || {};
+  return content;
+};
+
 const startSearch = async () => {
+  const loveQuote = await getRandomQuote();
   // skips users that are logged in or yes or no'd
   const userIdsToSkip = JSON.parse(localStorage.getItem("userIdsToSkip")) || [];
 
@@ -451,7 +459,7 @@ const startSearch = async () => {
   const { data } = await response.json();
 
   if (data) {
-    const profileCard = `<div class="profile-card card mx-auto m-5"style="width: 18rem;" id="profile-card">
+    const profileCard = `<div class="text-center bg-white p-4 w-10">${loveQuote}</div><div class="profile-card card mx-auto m-5"style="width: 18rem;" id="profile-card">
       <div class="card-summary">
         <h5 class="profile-name">${data.name}, <b>${data.age}</b></h5>
         <h6 class="profile-location"><small>${data.location}</small></h6>
