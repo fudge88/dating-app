@@ -435,25 +435,15 @@ const handleNo = (event) => {
   startSearch();
 };
 
-// const randomRomanticQuote = async () => {
-//   const response = await fetch(`https://paperquotes.p.rapidapi.com/quotes`, {
-//     method: "GET",
-//     headers: {
-//       authorization: "token 71996f527b53ee6101959cadaf8bfbc78a521a81 ",
-//       "x-rapidapi-host": "paperquotes.p.rapidapi.com",
-//       "x-rapidapi-key": "	71996f527b53ee6101959cadaf8bfbc78a521a81",
-//       useQueryString: true,
-//     },
-//   });
-//   const { success } = await response.json();
-//   if (success) {
-//     console.log(randomRomanticQuote);
-//   } else {
-//     console.log("error");
-//   }
-// };
+const getRandomQuote = async () => {
+  const response = await fetch("https://api.quotable.io/random/?tags=love");
+  const quote = await response.json();
+  const { content } = quote || {};
+  return content;
+};
 
 const startSearch = async () => {
+  const loveQuote = await getRandomQuote();
   // skips users that are logged in or yes or no'd
   const userIdsToSkip = JSON.parse(localStorage.getItem("userIdsToSkip")) || [];
 
@@ -469,7 +459,7 @@ const startSearch = async () => {
   const { data } = await response.json();
 
   if (data) {
-    const profileCard = `<div class="profile-card card mx-auto m-5"style="width: 18rem;" id="profile-card">
+    const profileCard = `<div class="text-center bg-white p-4 w-10">${loveQuote}</div><div class="profile-card card mx-auto m-5"style="width: 18rem;" id="profile-card">
       <div class="card-summary">
         <h5 class="profile-name">${data.name}, <b>${data.age}</b></h5>
         <h6 class="profile-location"><small>${data.location}</small></h6>
@@ -530,8 +520,28 @@ const startSearch = async () => {
   }
 };
 
+const confimationModal = () => {
+  const deleteModal = `<div class="modal fade is-active" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-body text-center">
+        do you want to delete ???
+        <div><img src="https://c.tenor.com/WogtNEb_jCwAAAAC/match-perfect.gif" alt="this slowpoke moves"  width="250" /></div>
+      </div>
+      <div class="d-flex justify-content-center">
+        <button type="button" class="btn btn-styling mb-2" data-bs-dismiss="modal">yes</button>
+        <button type="button" class="btn btn-styling mb-2" data-bs-dismiss="modal">no</button>
+      </div>
+    </div>
+  </div>
+</div>`;
+  $("#modal-container").append(deleteModal);
+  $(".modal").modal("show");
+};
+
 const deleteMatch = async (event) => {
-  const id = $(event.target).attr("data-matchId");
+  //confimationModal();
+  // const id = $(event.target).attr("data-matchId");
   const response = await fetch(`/api/match/${id}`, {
     method: "DELETE",
     headers: {
