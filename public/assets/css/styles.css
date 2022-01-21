@@ -125,7 +125,7 @@ h3 {
 .text-btn:hover,
 .btn-style:hover {
   background-color: var(--hot-pink);
-  color: white;
+  color: white !important;
   transform: scale(1.1);
 }
 
@@ -193,6 +193,7 @@ h3 {
   background-color: var(--hot-pink);
   color: white;
   border-radius: 10px;
+  border: none;
 }
 .btn-styling:hover {
   color: yellow;
