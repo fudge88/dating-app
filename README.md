@@ -1,6 +1,6 @@
 ![Crush Logo](./public/assets/img/crush.png)
 
-You can view the deployed application [here](https://fudge88.github.io/foodtopia/).
+You can view the deployed application [here](https://crush-app-2022.herokuapp.com/).
 
 ## Table of Contents
 
