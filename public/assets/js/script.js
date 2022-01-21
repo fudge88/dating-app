@@ -57,8 +57,8 @@ const getErrorsSignUp = ({
     errors.build = "Build is required";
   }
 
-  if (!age || +age <= 0) {
-    errors.age = "Age is required and cannot be 0";
+  if (!age || +age <= 17) {
+    errors.age = "Age is required and cannot be under 18";
   }
 
   if (!seriousness) {
@@ -139,12 +139,12 @@ const handleLogin = async (event) => {
 const handleSignup = async (event) => {
   event.preventDefault();
 
-  const name = $("#name-input").val();
-  const email = $("#email-input").val();
+  const name = $("#name-input").val().trim();
+  const email = $("#email-input").val().trim();
   const password = $("#password-input").val();
   const confirmPassword = $("#confirmPassword-input").val();
   const age = $("#age-input").val();
-  const location = $("#location-input").val();
+  const location = $("#location-input").val().trim();
   const build = $("#build-input").find(":selected").val();
   const height = $("#height-input").val();
   const seriousness = $("#seriousness-input").find(":selected").val();
@@ -435,7 +435,15 @@ const handleNo = (event) => {
   startSearch();
 };
 
+const getRandomQuote = async () => {
+  const response = await fetch("https://api.quotable.io/random/?tags=love");
+  const quote = await response.json();
+  const { content } = quote || {};
+  return content;
+};
+
 const startSearch = async () => {
+  const loveQuote = await getRandomQuote();
   // skips users that are logged in or yes or no'd
   const userIdsToSkip = JSON.parse(localStorage.getItem("userIdsToSkip")) || [];
 
@@ -451,7 +459,7 @@ const startSearch = async () => {
   const { data } = await response.json();
 
   if (data) {
-    const profileCard = `<div class="profile-card card mx-auto m-5"style="width: 18rem;" id="profile-card">
+    const profileCard = `<div class="text-center bg-white p-4 w-10">${loveQuote}</div><div class="profile-card card mx-auto m-5"style="width: 18rem;" id="profile-card">
       <div class="card-summary">
         <h5 class="profile-name">${data.name}, <b>${data.age}</b></h5>
         <h6 class="profile-location"><small>${data.location}</small></h6>
@@ -462,7 +470,7 @@ const startSearch = async () => {
       <div class="card-body">  
         <div class="row">
           <div class="col-6"><b>Height:</b></div>
-          <div class="col-6">${data.height}</div>
+          <div class="col-6">${data.height} m</div>
           <div class="w-100"></div>
           <div class="col-6"><b>Build:</b></div>
           <div class="col-6">${data.build}</div>
