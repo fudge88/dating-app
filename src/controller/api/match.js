@@ -14,8 +14,6 @@ const verifyAndCreateMatch = async (req, res) => {
       },
     });
 
-    console.log(match);
-
     if (!match) {
       await Match.create({
         match_request_from: loggedInUser,
@@ -49,7 +47,7 @@ const deleteMatchById = async (req, res) => {
       res.status(404).json({ message: "Failed to delete match ID" });
       return;
     }
-    res.json(matchData);
+    res.json({ success: true, message: "Deleted Match" });
   } catch (error) {
     console.log(err);
     res.status(500).json(err);

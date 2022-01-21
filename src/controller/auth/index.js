@@ -74,6 +74,7 @@ const signup = async (req, res) => {
         "height",
         "build",
         "seriousness",
+        "img",
       ],
       req.body
     );
@@ -92,6 +93,7 @@ const signup = async (req, res) => {
           "height",
           "build",
           "seriousness",
+          "img",
         ],
         payload
       )

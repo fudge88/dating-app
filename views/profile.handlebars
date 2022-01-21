@@ -2,70 +2,55 @@
   {{> private-navbar}}
 </header>
 
-<main class="container">
-      <section class="jumbotron-styling">
-      <div class="mt-4">
-        <div class="row">
-          <div class="col-sm text-left">
-            <img
-              src="{{user.img}}"
-              alt=""
-              style="height: 15rem"
-            />
-            <div class="m-2">
-              <h2>{{user.name}}, {{user.age}}</h2>
-              <h4>{{user.location}}</h4>
-              <div><b>Seriousness: </b>{{user.seriousness}}</div>
-              <button class="btn-styling mt-4 p-3" id="{{user.id}}">Update info</button>
-            </div>
-          </div>
-            <div class="col-sm text-right">
-              <div class="m-2 mt-4">
-              <h3>My Details</h3>
-              <p><b>Height: </b>{{user.height}}</p>
-              <p><b>Build: </b>{{user.build}}</p>
-              <p><b>Gender: </b>{{user.gender}}</p>
-              <p><b>Sexuality: </b>{{user.sexual_preference}}</p>
-              <h3 class="mt-4">About Me</h3>
-              <p>
-                {{user.about_me}}
-              </p>
-              </div>
-            </div>
+<main class="container mt-4">
+  <div class="updateModal-container"></div>
+  {{!-- User info section --}}
+  <section class="jumbotron-styling">
+    <div class="row">
+      <div class="col-sm">
+        <div class="p-2">
+          <img src="{{user.img}}" alt="" class="profile-img" />
+        </div>
+        <div class="p-2 text-center">
+          <h2>{{user.name}}, {{user.age}}</h2>
+          <h3 class="fs-5">{{user.location}}</h3>
+          <div><strong>Seriousness: </strong>{{user.seriousness}}</div>
+          <div>
+            <button class="btn-styling mt-4 p-3" id="{{user.id}}" name="updateBtn">
+              Update info
+            </button>
           </div>
         </div>
       </div>
-      <div class="row mt-4">
-        <div class="col-sm">
-          <hr />
-          <h3 class="text-center pink-text">{{user.name}}'s Matches</h3>
-          <div class="row justify-content-center">
-            {{#each matches}}
-            <div class="profile-card card mx-auto m-5"style="width: 18rem;" id="profile-card">
-              <div class="card-summary">
-                <h5 class="profile-name">{{name}}, <b>{{age}}</b></h5>
-                <h6 class="profile-location"><small>{{location}}</small></h6>
-              </div>
-                <img class="card-img-top" src="{{img}}" alt="Card image cap" />
-              <div class="card-body">  
-                <div class="row">
-                  <div class="col-6"><b>Height:</b></div>
-                  <div class="col-6">{{height}}</div>
-                  <div class="w-100"></div>
-                  <div class="col-6"><b>Build:</b></div>
-                  <div class="col-6">{{build}}</div>
-                  <div class="w-100"></div>
-                  <div class="col-6"><b>Seriousness:</b></div>
-                  <div class="col-6">{{seriousness}}</div>
-                </div>
-                <hr>
-                  <div class="profile-bio mt-2">{{about_me}}</div>
-              </div>
-            </div>
+      <div class="col-sm profile-details-text">
+        <div class="p-2">
+          <h3>My Details</h3>
+          <p><strong>Height: </strong>{{user.height}}</p>
+          <p><strong>Build: </strong>{{user.build}}</p>
+          <p><strong>Gender: </strong>{{user.gender}}</p>
+          <p><strong>Sexuality: </strong>{{user.sexuality}}</p>
+        </div>
+        <div class="p-2">
+          <h3 class="mt-4">About Me</h3>
+          <p>{{user.aboutMe}}</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-            {{/each}}
-          </div>
-        </div>
-      </div>
-    </section>
+  <hr />
+
+  {{!-- Matches section --}}
+  <section class="mt-4">
+    <h3 class="text-center pink-text">{{user.name}}'s Matches</h3>
+    <div class="d-flex flex-wrap justify-content-center">
+      {{#if matches.length}}
+      {{#each matches}}
+      {{> profile-card}}
+      {{/each}}
+      {{else}}
+      <h1>NO MATCHES</h1>
+      {{/if}}
+    </div>
+  </section>
 </main>
