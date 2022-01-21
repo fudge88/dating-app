@@ -57,8 +57,8 @@ const getErrorsSignUp = ({
     errors.build = "Build is required";
   }
 
-  if (!age || +age <= 0) {
-    errors.age = "Age is required and cannot be 0";
+  if (!age || +age <= 17) {
+    errors.age = "Age is required and cannot be under 18";
   }
 
   if (!seriousness) {
@@ -144,7 +144,7 @@ const handleSignup = async (event) => {
   const password = $("#password-input").val();
   const confirmPassword = $("#confirmPassword-input").val();
   const age = $("#age-input").val();
-  const location = $("#location-input").val();
+  const location = $("#location-input").val().replace(/\s/g, "");
   const build = $("#build-input").find(":selected").val();
   const height = $("#height-input").val();
   const seriousness = $("#seriousness-input").find(":selected").val();
@@ -434,6 +434,24 @@ const handleNo = (event) => {
   $("#profile-card").remove();
   startSearch();
 };
+
+// const randomRomanticQuote = async () => {
+//   const response = await fetch(`https://paperquotes.p.rapidapi.com/quotes`, {
+//     method: "GET",
+//     headers: {
+//       authorization: "token 71996f527b53ee6101959cadaf8bfbc78a521a81 ",
+//       "x-rapidapi-host": "paperquotes.p.rapidapi.com",
+//       "x-rapidapi-key": "	71996f527b53ee6101959cadaf8bfbc78a521a81",
+//       useQueryString: true,
+//     },
+//   });
+//   const { success } = await response.json();
+//   if (success) {
+//     console.log(randomRomanticQuote);
+//   } else {
+//     console.log("error");
+//   }
+// };
 
 const startSearch = async () => {
   // skips users that are logged in or yes or no'd
