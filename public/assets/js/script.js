@@ -459,7 +459,9 @@ const startSearch = async () => {
   const { data } = await response.json();
 
   if (data) {
-    const profileCard = `<div class="text-center bg-white p-4 w-10">${loveQuote}</div><div class="profile-card card mx-auto m-5"style="width: 18rem;" id="profile-card">
+    const profileCard = `<div class="quote-summary">
+    <h3 class="text-white">#PositiveVibesOnly</h3>
+    ${loveQuote}</div><div class="profile-card card mx-auto m-5"style="width: 18rem;" id="profile-card">
       <div class="card-summary">
         <h5 class="profile-name">${data.name}, <b>${data.age}</b></h5>
         <h6 class="profile-location"><small>${data.location}</small></h6>
