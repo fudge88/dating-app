@@ -112,7 +112,10 @@ npm run start
 
 #### Third Party API:
 
-- TBD?????????????
+[Quotable](https://github.com/lukePeavey/quotable) is a free, open source quotations API. It was originally built as part of a FreeCodeCamp project.
+We have incorporated this into our project; Using the hashtag 'positiveVibesOnly' to appeal and encourage the youth to stay strong and positive about their search, life, and the pandemic.
+
+We used the endpoints of `random/?tags=love` this generates a random quote for every click/refresh of the page.
 
 #### Restful API:
 
@@ -157,7 +160,7 @@ Here is the EndPoint design of the RESTful API that was used to create this proj
 
 ![Wireframe for search](./public/assets/img/search.png)
 
-#### Searching
+#### Explore Page
 
 ![Wireframe for explore](./public/assets/img/searching.png)
 
@@ -171,21 +174,25 @@ Here is the EndPoint design of the RESTful API that was used to create this proj
 
 ## Final Website
 
-#### INDEX PAGE screenshot
+#### Home Page
 
-![Screen-shot of webpage](./public/assets/img/routing.png)
+![Screen-shot of webpage](./public/assets/img/homess.png)
 
-#### MENU PAGE screenshot
+#### Profile Page
 
-![Screen-shot of webpage](./public/assets/img/routing.png)
+![Screen-shot of webpage](./public/assets/img/profiless.png)
 
-#### FAVOURITES PAGE screenshot
+#### Explore Page
 
-![Screen-shot of webpage](./assets/images/wireframes/favourites-ss.png)
+![Screen-shot of webpage](./public/assets/img/exploress.png)
 
-#### RECIPES screenshot
+#### SignUp Page
 
-![Screen-shot of webpage](./assets/images/wireframes/recipe-ss.png)
+![Screen-shot of webpage](./public/assets/img/signupss.png)
+
+#### Login Page
+
+![Screen-shot of webpage](./public/assets/img/loginss.png)
 
 ## References
 

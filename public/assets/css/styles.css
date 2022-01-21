@@ -145,6 +145,18 @@ h3 {
   transform: translate(-50%, -50%);
 }
 
+.quote-summary {
+  text-align: center;
+  font-weight: 700;
+  margin: 15px;
+  padding: 5px;
+  background: #ffffff73;
+  box-shadow: 0 8px 32px 0 rgb(31 38 135 / 37%);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  border-radius: 10px;
+  border: 1px solid #ffffff2e;
+}
 .jumbotron-styling {
   /* position: fixed;
   top: 50%;
