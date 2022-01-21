@@ -143,39 +143,41 @@ Here is the EndPoint design of the RESTful API that was used to create this proj
 - Ability to video call and leave voice notes
 - Creating a premium service, which creates matches based interests
 
-## Screenshots
+## Wireframes
 
-#### Wireframes
+#### Home Page
 
-#### INDEX PAGE Large and small screen Wireframe
+![Wireframe for home](./public/assets/img/home.png)
 
-![Wireframe for index](./assets/images/wireframes/index-wf.png)
-![Wireframe for index](./assets/images/wireframes/index-wf-sm.png)
+#### Profile Page
 
-#### MENU PAGE Large and small screen Wireframe
+![Wireframe for profile](./public/assets/img/profile.png)
 
-![Wireframe for index](./assets/images/wireframes/menu-wf.png)
-![Wireframe for index](./assets/images/wireframes/menu-wf-sm.png)
+#### Search Page
 
-#### FAVOURITES PAGE Large and small screen Wireframe
+![Wireframe for search](./public/assets/img/search.png)
 
-![Wireframe for index](./assets/images/wireframes/fav-wf.png)
-![Wireframe for index](./assets/images/wireframes/fav-wf-sm.png)
+#### Searching
 
-#### Large and small screen Wireframe
+![Wireframe for explore](./public/assets/img/searching.png)
 
-![Wireframe for index](./assets/images/wireframes/recipe-wf.png)
-![Wireframe for index](./assets/images/wireframes/recipe-wf-sm.png)
+#### Login Page
+
+![Wireframe for login](./public/assets/img/login.png)
+
+#### Signup Page
+
+![Wireframe for signup](./public/assets/img/signup.png)
 
 ## Final Website
 
 #### INDEX PAGE screenshot
 
-![Screen-shot of webpage](./assets/images/wireframes/index-ss.png)
+![Screen-shot of webpage](./public/assets/img/routing.png)
 
 #### MENU PAGE screenshot
 
-![Screen-shot of webpage](./assets/images/wireframes/menu-ss.png)
+![Screen-shot of webpage](./public/assets/img/routing.png)
 
 #### FAVOURITES PAGE screenshot
 
