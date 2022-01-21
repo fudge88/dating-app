@@ -520,28 +520,8 @@ const startSearch = async () => {
   }
 };
 
-const confimationModal = () => {
-  const deleteModal = `<div class="modal fade is-active" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-body text-center">
-        do you want to delete ???
-        <div><img src="https://c.tenor.com/WogtNEb_jCwAAAAC/match-perfect.gif" alt="this slowpoke moves"  width="250" /></div>
-      </div>
-      <div class="d-flex justify-content-center">
-        <button type="button" class="btn btn-styling mb-2" data-bs-dismiss="modal">yes</button>
-        <button type="button" class="btn btn-styling mb-2" data-bs-dismiss="modal">no</button>
-      </div>
-    </div>
-  </div>
-</div>`;
-  $("#modal-container").append(deleteModal);
-  $(".modal").modal("show");
-};
-
 const deleteMatch = async (event) => {
-  //confimationModal();
-  // const id = $(event.target).attr("data-matchId");
+  const id = $(event.target).attr("data-matchId");
   const response = await fetch(`/api/match/${id}`, {
     method: "DELETE",
     headers: {
