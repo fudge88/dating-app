@@ -139,12 +139,12 @@ const handleLogin = async (event) => {
 const handleSignup = async (event) => {
   event.preventDefault();
 
-  const name = $("#name-input").val();
-  const email = $("#email-input").val();
+  const name = $("#name-input").val().trim();
+  const email = $("#email-input").val().trim();
   const password = $("#password-input").val();
   const confirmPassword = $("#confirmPassword-input").val();
   const age = $("#age-input").val();
-  const location = $("#location-input").val().replace(/\s/g, "");
+  const location = $("#location-input").val().trim();
   const build = $("#build-input").find(":selected").val();
   const height = $("#height-input").val();
   const seriousness = $("#seriousness-input").find(":selected").val();
@@ -435,24 +435,6 @@ const handleNo = (event) => {
   startSearch();
 };
 
-// const randomRomanticQuote = async () => {
-//   const response = await fetch(`https://paperquotes.p.rapidapi.com/quotes`, {
-//     method: "GET",
-//     headers: {
-//       authorization: "token 71996f527b53ee6101959cadaf8bfbc78a521a81 ",
-//       "x-rapidapi-host": "paperquotes.p.rapidapi.com",
-//       "x-rapidapi-key": "	71996f527b53ee6101959cadaf8bfbc78a521a81",
-//       useQueryString: true,
-//     },
-//   });
-//   const { success } = await response.json();
-//   if (success) {
-//     console.log(randomRomanticQuote);
-//   } else {
-//     console.log("error");
-//   }
-// };
-
 const startSearch = async () => {
   // skips users that are logged in or yes or no'd
   const userIdsToSkip = JSON.parse(localStorage.getItem("userIdsToSkip")) || [];
@@ -480,7 +462,7 @@ const startSearch = async () => {
       <div class="card-body">  
         <div class="row">
           <div class="col-6"><b>Height:</b></div>
-          <div class="col-6">${data.height}</div>
+          <div class="col-6">${data.height} m</div>
           <div class="w-100"></div>
           <div class="col-6"><b>Build:</b></div>
           <div class="col-6">${data.build}</div>
