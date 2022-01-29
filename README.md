@@ -78,12 +78,12 @@ If another USER has 'liked me', upon 'liking' them back i SHOULD receive a notif
 
 If you are interest in making contribution to the code, you can install this repository by following the instructions below:
 
-You are able to clone this repository, by clicking [here](https://github.com/fudge88/dating-app) and then clicking on the `code` button. Select how you would like to clone the repository.
+You are able to clone this repository, by clicking [here](https://github.com/SumaiaSorna/dating-app) and then clicking on the `code` button. Select how you would like to clone the repository.
 
 If you have your SSH keys set up, you are able to copy the link from the drop down and paste the following into your terminal application:
 
 ```
-git clone git@github.com:fudge88/dating-app.git
+git@github.com:SumaiaSorna/dating-app.git
 ```
 
 Then change your directory so you are now in your newly cloned project and then open the code in your chosen source-code editor.
@@ -123,7 +123,7 @@ To Create an restful API we began by defining the EndPoints which needed to be c
 
 GET is used to get data from the server or better known as READ, POST is used to CREATE new data, PUT is used to UPDATE data, and DELETE is used to delete data.
 
-Or better known as CRUD (Create-Read-Update-Delete) functionalit.
+Or better known as CRUD (Create-Read-Update-Delete) functionality.
 
 #### Routing Table:
 
@@ -220,6 +220,6 @@ This project is licensed under the terms of the MIT license.
 
 please contact me through the links below:
 
-[GitHub](https://github.com/fudge88) Profile
+[GitHub](https://github.com/SumaiaSorna) Profile
 
-Email: akhlaq.fahra@gmail.com
+Email: sorna.sumaia@gmail.com
